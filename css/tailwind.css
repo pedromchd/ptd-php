@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* teste */
+@layer components {
+  .btn {
+    @apply bg-indigo-700 text-white rounded-lg px-4 py-2;
+  }
+}

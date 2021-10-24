@@ -1,0 +1,28 @@
+{
+  "name": "projeto-infinite-monke",
+  "version": "1.0.0",
+  "description": "Classroom link <https://classroom.github.com/a/e6xnTEZy>",
+  "main": "index.js",
+  "scripts": {
+    "build": "set TAILWIND_MODE=watch&postcss ./css/tailwind.css -o styles.css -w --verbose",
+    "prod": "NODE_ENV=production postcss ./css/tailwind.css -o styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbo-2021/projeto-infinite-monke.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbo-2021/projeto-infinite-monke/issues"
+  },
+  "homepage": "https://github.com/dbo-2021/projeto-infinite-monke#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "cssnano": "^5.0.8",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17",
+    "win-node-env": "^0.4.0"
+  }
+}
