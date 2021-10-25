@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "set TAILWIND_MODE=watch&postcss ./css/tailwind.css -o ./css/style.css -w --verbose"
+		},
+		{
+			"type": "npm",
+			"script": "prod",
+			"problemMatcher": [],
+			"label": "npm: prod",
+			"detail": "NODE_ENV=production postcss ./css/tailwind.css -o ./css/style.css"
+		}
+	]
+}
