@@ -7,15 +7,7 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      // teste
-      width: {
-        '43': '10.75rem'
-      },
-      // colors: {
-      //   'cyan': colors.cyan
-      // }
-    },
+    extend: {},
   },
   variants: {
     extend: {},
