@@ -5,15 +5,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Template</title>
+  <title>Sistema de Administração de Planos de Trabalho Docente</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 
-<body>
-  <h1 class="h1">Sistema de Administração de Planos de Trabalho Docente</h1>
+<body class="h-screen flex items-center justify-center">
+  <div class="flex flex-col">
+    <h1 class="h1">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+    <form name="login" action="login.html" method="get">
+      <section>
+        <label for="username"><i class="fa fa-user"></i></label>
+        <input type="text" name="username" id="username" required aria-describedby="help" placeholder="Usuário">
+      </section>
+      <section>
+        <label for="password"><i class="fa fa-lock"></i></label>
+        <input type="password" name="password" id="password" required aria-describedby="help" placeholder="Senha">
+      </section>
+      <small id="help"><a href="./esqueci_minha_senha.php">Esqueceu seu usuário ou senha?</a></small>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 </body>
 
 </html>
