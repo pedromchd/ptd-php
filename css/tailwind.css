@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+/* @layer components {
   .h1 {
     @apply font-semibold text-center text-2xl
   }
-}
+} */
