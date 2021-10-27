@@ -8,25 +8,28 @@
   <title>Sistema de Administração de Planos de Trabalho Docente</title>
   <link rel="shortcut icon" href="icon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/reset.css">
-  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 
-<body class="h-screen flex items-center justify-center">
-  <div>
-    <h1 class="font-semibold text-center text-2xl">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
-    <form class="flex flex-col" name="login" action="login.html" method="get">
-      <section>
-        <label for="username"><i class="fa fa-user"></i></label>
-        <input type="text" name="username" id="username" required aria-describedby="help" placeholder="Usuário">
+<body class="">
+  <div class="h-screen w-screen flex flex-col items-center justify-center dark:bg-gray-900">
+    <h1 class="font-semibold text-center text-2xl mb-5 dark:text-gray-100">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+    <form class="grid place-items-center" name="login" action="login.html" method="get" autocomplete="off">
+      <section class="flex flex-col items-center justify-center bg-gray-100 px-5 pt-5 w-80 rounded-3xl space-y-4 z-10 dark:bg-gray-500">
+        <section class="space-x-2 text-xl dark:text-gray-100">
+          <label for="username"><i class="fa fa-user"></i></label>
+          <input class="placeholder-gray-500 dark:placeholder-gray-300" type="text" name="username" id="username" required aria-describedby="help" placeholder="Usuário">
+        </section>
+        <section class="space-x-2 text-xl dark:text-gray-100">
+          <label for="password"><i class="fa fa-lock"></i></label>
+          <input class="placeholder-gray-500 dark:placeholder-gray-300" type="password" name="password" id="password" required aria-describedby="help" placeholder="Senha">
+          <!-- <label for="password" class="absolute right-0"><i class="fa fa-eye"></i></label> -->
+        </section>
+        <small id="help" class="self-end pb-3 cursor-pointer underline dark:text-gray-100"><a href="./esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
       </section>
-      <section>
-        <label for="password"><i class="fa fa-lock"></i></label>
-        <input type="password" name="password" id="password" required aria-describedby="help" placeholder="Senha">
-      </section>
-      <small id="help"><a href="./esqueci_minha_senha.php">Esqueceu seu usuário ou senha?</a></small>
-      <button type="submit">Entrar</button>
+      <button class="relative -top-5 p-3 pt-8 rounded-b-3xl w-80 text-center bg-gray-200 font-semibold dark:bg-gray-600 dark:text-gray-100" type="submit">Entrar</button>
     </form>
   </div>
 </body>
