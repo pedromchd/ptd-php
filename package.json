@@ -4,8 +4,8 @@
   "description": "Classroom link <https://classroom.github.com/a/e6xnTEZy>",
   "main": "index.js",
   "scripts": {
-    "build": "set TAILWIND_MODE=watch&postcss ./css/tailwind.css -o ./css/style.css -w --verbose",
-    "prod": "NODE_ENV=production postcss ./css/tailwind.css -o ./css/style.css"
+    "build": "set TAILWIND_MODE=watch&postcss ./src/css/tailwind.css -o ./src/css/style.min.css -w --verbose",
+    "prod": "NODE_ENV=production postcss ./src/css/tailwind.css -o ./src/css/style.min.css"
   },
   "repository": {
     "type": "git",

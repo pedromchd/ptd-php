@@ -10,14 +10,14 @@
 			},
 			"problemMatcher": [],
 			"label": "npm: build",
-			"detail": "set TAILWIND_MODE=watch&postcss ./css/tailwind.css -o ./css/style.css -w --verbose"
+			"detail": "set TAILWIND_MODE=watch&postcss ./src/css/tailwind.css -o ./src/css/style.min.css -w --verbose"
 		},
 		{
 			"type": "npm",
 			"script": "prod",
 			"problemMatcher": [],
 			"label": "npm: prod",
-			"detail": "NODE_ENV=production postcss ./css/tailwind.css -o ./css/style.css"
+			"detail": "NODE_ENV=production postcss ./src/css/tailwind.css -o ./src/css/style.min.css"
 		}
 	]
 }
