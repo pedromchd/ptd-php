@@ -4,12 +4,13 @@
     "EditorConfig.EditorConfig",
     "ms-vscode.atom-keybindings",
     "ritwickdey.LiveServer",
-    "vscode-icons-team.vscode-icons",
     "wayou.vscode-todo-highlight",
     "Zignd.html-css-class-completion",
-    "thekalinga.bootstrap4-vscode",
     "wallabyjs.quokka-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "pranaygp.vscode-css-peek",
+    "PKief.material-icon-theme"
   ],
   "unwantedRecommendations": [
     "dbaeumer.jshint",
