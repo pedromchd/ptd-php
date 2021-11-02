@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/dbo-2021/projeto-infinite-monke#readme",
   "devDependencies": {
-    "autoprefixer": "^10.3.7",
-    "cssnano": "^5.0.8",
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.9",
     "postcss-cli": "^9.0.1",
-    "tailwindcss": "^2.2.17",
+    "tailwindcss": "^2.2.19",
     "win-node-env": "^0.4.0"
   }
 }
