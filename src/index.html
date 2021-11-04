@@ -13,23 +13,23 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 
-<body>
-  <div>
-    <h1>Sistema de Administração de Planos de Trabalho Docente</h1>
-    <form name="login" action="login.html" method="get" autocomplete="off">
-      <section>
-        <section>
-          <label for="username"><i class="fa fa-user"></i></label>
-          <input type="text" name="username" id="username" required aria-describedby="help" placeholder="Usuário">
+<body class="dark">
+  <div class="h-screen grid bg-gray-50 dark:bg-gray-900 dark:text-white">
+    <header class="fixed">
+      <h1>Sistema de Administração de Planos de Trabalho Docente</h1>
+    </header>
+    <main class="place-self-center w-80">
+      <form name="login" action="login.html" method="get" autocomplete="off">
+        <section class="form-login-outer space-y-2">
+          <label for="usuario"><i class="fa fa-user"></i> Usuário</label>
+          <input type="text" name="usuario" id="usuario" required autofocus>
+          <label for="senha"><i class="fa fa-lock"></i> Senha</label>
+          <input type="password" name="senha" id="senha" required>
+          <small class="text-right"><a href="esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
         </section>
-        <section>
-          <label for="password"><i class="fa fa-lock"></i></label>
-          <input type="password" name="password" id="password" required aria-describedby="help" placeholder="Senha">
-        </section>
-        <small id="help"><a href="./esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
-      </section>
-      <button type="submit">Entrar</button>
-    </form>
+        <button type="submit" class="btn-login-inner">Entrar</button>
+      </form>
+    </main>
   </div>
 </body>
 

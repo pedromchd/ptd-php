@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .h1 {
-    @apply font-semibold text-center text-2xl
+@layer components {
+  .form-login-outer {
+    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl bg-gray-200 dark:bg-gray-700;
   }
-} */
+  .btn-login-inner {
+    @apply w-full text-center font-bold relative -top-6 pt-9 pb-4 rounded-b-3xl bg-gray-300 dark:bg-gray-800;
+  }
+}
