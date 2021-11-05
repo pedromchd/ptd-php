@@ -6,11 +6,17 @@
   .page-bg {
     @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white;
   }
+  .toggle-bg {
+    @apply w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-300 ease-in-out dark:bg-gray-600;
+  }
+  .toggle-dot {
+    @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out dark:translate-x-3;
+  }
   .form-login-outer {
     @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-3 shadow-md bg-gray-200 dark:bg-gray-700;
   }
   .btn-login-inner {
-    @apply w-full text-center font-semibold relative -top-6 pt-10 pb-4 rounded-b-3xl bg-gray-300 dark:bg-gray-800 uppercase select-none;
+    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none bg-gray-300 dark:bg-gray-800;
   }
   .input-group-login {
     @apply flex shadow-md bg-gray-300 dark:bg-gray-800;
