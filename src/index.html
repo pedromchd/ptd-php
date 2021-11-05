@@ -11,38 +11,47 @@
   <!-- <link rel="stylesheet" href="css/tailwind.min.css"> -->
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <script src="js/alpinejs.min.js"></script>
+  <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased" x-data="{'darkMode': false}">
-  <div class="h-screen grid bg-gray-50 dark:bg-gray-900 dark:text-white">
-    <header class="fixed">
-      <h1>Sistema de Administração de Planos de Trabalho Docente</h1>
-    </header>
-    <main class="place-self-center">
-      <form name="login" action="login.html" method="get" autocomplete="off">
-        <section class="form-login-outer">
-          <section class="input-group-login">
-            <div class="login-label">
-              <label for="usuario"><i class="fa fa-user"></i></label>
-            </div>
-            <div class="login-input">
-              <input type="text" name="usuario" id="usuario" required placeholder="Usuário" class="placeholder-gray-500 dark:placeholder-gray-400" autofocus>
-            </div>
+<body class="subpixel-antialiased"
+  x-data="{'darkMode': false}"
+  x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="p-2 uppercase text-center">
+        <h1 class="text-xl">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+      </header>
+      <main class="flex-grow grid">
+        <form class="place-self-center" name="login" action="login.html" method="get" autocomplete="off">
+          <section class="form-login-outer">
+            <section class="input-group-login">
+              <div class="login-label">
+                <label for="username"><i class="fa fa-user"></i></label>
+              </div>
+              <div class="login-input">
+                <input type="text" name="username" id="username" required placeholder="Usuário" class="placeholder-gray-500 dark:placeholder-gray-400" autofocus>
+              </div>
+            </section>
+            <section class="input-group-login">
+              <div class="login-label">
+                <label for="senha"><i class="fa fa-lock"></i></label>
+              </div>
+              <div class="login-input">
+                <input type="password" name="senha" id="senha" required placeholder="Senha" class="placeholder-gray-500 dark:placeholder-gray-400">
+              </div>
+            </section>
+            <small class="text-center"><a href="esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
           </section>
-          <section class="input-group-login">
-            <div class="login-label">
-              <label for="senha"><i class="fa fa-lock"></i></label>
-            </div>
-            <div class="login-input">
-              <input type="password" name="senha" id="senha" required placeholder="Senha" class="placeholder-gray-500 dark:placeholder-gray-400">
-            </div>
-          </section>
-          <small class="text-center"><a href="esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
-        </section>
-        <button type="submit" class="btn-login-inner">ENTRAR</button>
-      </form>
-    </main>
+          <input type="submit" name="entrar" value="Entrar" class="btn-login-inner">
+
+          <label for="toggle">DARKMODE</label>
+          <input type="checkbox" name="toggle" id="toggle" :value="darkMode" @change="darkMode = !darkMode">
+        </form>
+      </main>
+    </div>
   </div>
 </body>
 
