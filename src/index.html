@@ -22,14 +22,14 @@
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
       <header class="py-2 px-5 text-center flex justify-between">
-        <div class="flex-grow">
+        <div class="">
           a
         </div>
         <h1 class="text-xl uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
-        <div class="flex-grow flex items-center justify-end space-x-2 select-none">
+        <div class="flex items-center justify-end space-x-2 select-none">
           <span class="text-sm dark:text-gray-500 duration-200">Claro</span>
           <label for="toggle" class="toggle-bg" title="Define o tema da página">
-             <div class="toggle-dot"></div>
+            <div class="toggle-dot"></div>
           </label>
           <span class="text-sm text-gray-400 dark:text-white duration-200">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
@@ -48,7 +48,7 @@
             </section>
             <section class="input-group-login">
               <div class="login-label">
-                <label for="senha"><i class="fa fa-lock"></i></label>
+                <label for="senha"><i class="fa fa-lock cs"></i></label>
               </div>
               <div class="login-input">
                 <input type="password" name="senha" id="senha" required placeholder="Senha" class="placeholder-gray-500 dark:placeholder-gray-400">
@@ -61,6 +61,7 @@
       </main>
     </div>
   </div>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

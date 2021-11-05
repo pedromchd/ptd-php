@@ -4,13 +4,13 @@
 
 @layer components {
   .page-bg {
-    @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white duration-200;
+    @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white transition-colors duration-200;
   }
   .toggle-bg {
-    @apply w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-300 ease-in-out dark:bg-gray-600;
+    @apply w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-200 ease-in-out dark:bg-gray-600;
   }
   .toggle-dot {
-    @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out dark:translate-x-3;
+    @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-200 ease-in-out dark:translate-x-3;
   }
   .form-login-outer {
     @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-3 shadow-md bg-gray-200 dark:bg-gray-700;
@@ -26,5 +26,8 @@
   }
   .login-input {
     @apply h-10 grid place-items-center pr-3;
+  }
+  .cs:not(.fa-lock) {
+    @apply cursor-pointer;
   }
 }
