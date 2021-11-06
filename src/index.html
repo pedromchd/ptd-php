@@ -21,12 +21,12 @@
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
-      <header class="py-2 px-5 text-center flex justify-between">
-        <div class="">
-          a
+      <header class="px-6 space-y-4 sm:space-y-0 sm:py-4 flex flex-col sm:flex-row">
+        <div class="w-full flex-1"></div>
+        <div class="flex-shrink-0">
+          <h1 class="text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
-        <h1 class="text-xl uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
-        <div class="flex items-center justify-end space-x-2 select-none">
+        <div class="w-full flex-1 flex items-center justify-center sm:justify-end space-x-2 select-none">
           <span class="text-sm dark:text-gray-500 duration-200">Claro</span>
           <label for="toggle" class="toggle-bg" title="Define o tema da página">
             <div class="toggle-dot"></div>
@@ -54,7 +54,9 @@
                 <input type="password" name="senha" id="senha" required placeholder="Senha" class="placeholder-gray-500 dark:placeholder-gray-400">
               </div>
             </section>
-            <small class="text-center text-sm"><a href="esqueci_minha_senha.php">Esqueceu usuário ou senha?</a></small>
+            <small class="text-center text-sm text-blue-700 dark:text-blue-400">
+              <a href="esqueci_minha_senha.php" class="cursor-pointer">Esqueceu usuário ou senha?</a>
+            </small>
           </section>
           <input type="submit" name="entrar" value="Entrar" class="btn-login-inner">
         </form>

@@ -16,7 +16,7 @@
     @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-3 shadow-md bg-gray-200 dark:bg-gray-700;
   }
   .btn-login-inner {
-    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none bg-gray-300 dark:bg-gray-800;
+    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none cursor-pointer bg-gray-300 dark:bg-gray-800;
   }
   .input-group-login {
     @apply flex shadow-md bg-gray-300 dark:bg-gray-800;
@@ -28,6 +28,6 @@
     @apply h-10 grid place-items-center pr-3;
   }
   .cs:not(.fa-lock) {
-    @apply cursor-pointer;
+    @apply pointer-events-auto cursor-pointer;
   }
 }
