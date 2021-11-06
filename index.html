@@ -4,17 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0; url='src/index.html'" />
+  <meta http-equiv="refresh" content="0; url='src/index.html'" />   <!-- DELETAR ESTA LINHA -->
   <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
   <!-- <title>Sistema de Administração de Planos de Trabalho Docente</title> -->
   <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> -->
   <!-- <link rel="stylesheet" href="css/reset.css"> -->
-  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> -->
+  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
   <!-- <link rel="stylesheet" href="css/style.min.css"> -->
   <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-  <!-- <script src="js/alpinejs.min.js"></script> -->
+  <!-- <script defer src="js/alpinejs.min.js"></script> -->
 </head>
 
-<body></body>
+<!-- <body class="subpixel-antialiased"
+  x-data="{'darkMode': false}"
+  x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="px-6 space-y-4 sm:space-y-0 sm:py-4 flex flex-col sm:flex-row">
+        <div class="w-full flex-1"></div>
+        <div class="flex-shrink-0">
+          <h1 class="text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+        </div>
+        <div class="w-full flex-1 flex items-center justify-center sm:justify-end space-x-2 select-none">
+          <span class="text-sm dark:text-gray-500 duration-200">Claro</span>
+          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+            <div class="toggle-dot"></div>
+          </label>
+          <span class="text-sm text-gray-400 dark:text-white duration-200">Escuro</span>
+          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+       </div>
+      </header>
+      <main class="flex-grow grid"></main>
+    </div>
+  </div>
+</body> MODELO COM DARK MODE HEADER E MAIN-->
 
 </html>
