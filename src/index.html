@@ -21,8 +21,10 @@
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
-      <header class="px-6 space-y-4 sm:space-y-0 sm:py-4 flex flex-col sm:flex-row">
-        <div class="w-full flex-1"></div>
+      <header class="mx-6 space-y-4 sm:space-y-0 my-4 flex flex-col sm:flex-row">
+        <div class="w-full flex-1 flex items-center justify-center sm:justify-start">
+          <img src="img/logo.png" class="w-60 sm:absolute dark:saturate-0 dark:invert dark:brightness-50 duration-200">
+        </div>
         <div class="flex-shrink-0">
           <h1 class="text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
@@ -55,7 +57,7 @@
               </div>
             </section>
             <small class="text-center text-sm text-blue-700 dark:text-blue-400">
-              <a href="esqueci_minha_senha.php" class="cursor-pointer">Esqueceu usuário ou senha?</a>
+              <a href="esqueci_minha_senha.php" class="cursor-pointer hover:underline">Esqueceu usuário ou senha?</a>
             </small>
           </section>
           <input type="submit" name="entrar" value="Entrar" class="btn-login-inner">
