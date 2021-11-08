@@ -13,7 +13,7 @@
     @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-200 ease-in-out dark:translate-x-3;
   }
   .form-login-outer {
-    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-3 shadow-md bg-gray-200 dark:bg-gray-700;
+    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-4 shadow-md bg-gray-200 dark:bg-gray-700;
   }
   .btn-login-inner {
     @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none cursor-pointer bg-gray-300 dark:bg-gray-800;
