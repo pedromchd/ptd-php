@@ -39,6 +39,9 @@
   .logo-img {
     @apply w-60 sm:absolute dark:saturate-0 dark:invert dark:brightness-50 duration-200;
   }
+  .title-container {
+    @apply flex-shrink-0 flex items-end
+  }
   .title {
     @apply text-xl text-center uppercase font-semibold;
   }
