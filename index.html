@@ -22,19 +22,19 @@
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
-      <header class="mx-6 space-y-4 sm:space-y-0 my-4 flex flex-col sm:flex-row">
-        <div class="w-full flex-1 flex items-center justify-center sm:justify-start">
-          <img src="img/logo.png" class="w-60 sm:absolute dark:saturate-0 dark:invert dark:brightness-50 duration-200">
+      <header class="header">
+        <div class="logo">
+          <img src="img/logo.png" class="logo-img">
         </div>
         <div class="flex-shrink-0">
-          <h1 class="text-xl text-center uppercase font-semibold">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+          <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
-        <div class="w-full flex-1 flex items-center justify-center sm:justify-end space-x-2 select-none">
-          <span class="text-sm dark:text-gray-500 duration-200">Claro</span>
+        <div class="toggle-container">
+          <span class="label-claro">Claro</span>
           <label for="toggle" class="toggle-bg" title="Define o tema da página">
             <div class="toggle-dot"></div>
           </label>
-          <span class="text-sm text-gray-400 dark:text-white duration-200">Escuro</span>
+          <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
        </div>
       </header>

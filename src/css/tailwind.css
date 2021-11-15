@@ -30,4 +30,25 @@
   .cs:not(.fa-lock) {
     @apply pointer-events-auto cursor-pointer;
   }
+  .header {
+    @apply mx-6 space-y-4 sm:space-y-0 my-4 flex flex-col sm:flex-row;
+  }
+  .logo {
+    @apply w-full flex-1 flex items-center justify-center sm:justify-start;
+  }
+  .logo-img {
+    @apply w-60 sm:absolute dark:saturate-0 dark:invert dark:brightness-50 duration-200;
+  }
+  .title {
+    @apply text-xl text-center uppercase font-semibold;
+  }
+  .toggle-container {
+    @apply w-full flex-1 flex items-center justify-center sm:justify-end space-x-2 select-none;
+  }
+  .label-claro {
+    @apply text-sm dark:text-gray-500 duration-200;
+  }
+  .label-escuro {
+    @apply text-sm text-gray-400 dark:text-white duration-200;
+  }
 }
