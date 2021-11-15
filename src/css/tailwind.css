@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @layer components {
+  .transition-bg-color {
+    transition-property: background-color;
+  }
+  .bg-transition {
+    @apply transition-bg-color duration-200;
+  }
+  .bg-text-transition {
+    @apply transition-colors duration-200;
+  }
   .page-bg {
-    @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white transition-colors duration-200;
+    @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white bg-transition;
   }
   .toggle-bg {
     @apply w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-200 ease-in-out dark:bg-gray-600;
@@ -13,13 +22,13 @@
     @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-200 ease-in-out dark:translate-x-3;
   }
   .form-login-outer {
-    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-4 shadow-md bg-gray-200 dark:bg-gray-700;
+    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-4 shadow-md bg-gray-200 dark:bg-gray-700 bg-transition;
   }
   .btn-login-inner {
-    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none cursor-pointer bg-gray-300 dark:bg-gray-800;
+    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none cursor-pointer bg-gray-300 dark:bg-gray-800 bg-text-transition;
   }
   .input-group-login {
-    @apply flex shadow-md bg-gray-300 dark:bg-gray-800;
+    @apply flex shadow-md bg-gray-300 dark:bg-gray-800 bg-text-transition;
   }
   .login-label {
     @apply w-10 h-10 grid place-items-center;
@@ -33,14 +42,20 @@
   .header {
     @apply mx-6 space-y-4 sm:space-y-0 my-4 flex flex-col sm:flex-row;
   }
-  .logo {
+  .logo-container {
     @apply w-full flex-1 flex items-center justify-center sm:justify-start;
   }
-  .logo-img {
-    @apply w-60 sm:absolute dark:saturate-0 dark:invert dark:brightness-50 duration-200;
+  .logo {
+    @apply w-60 sm:absolute -ml-2 dark:saturate-0 dark:invert dark:brightness-50 duration-200;
+  }
+  .user-container {
+    @apply w-full flex-1 flex flex-col justify-start items-center sm:items-start space-y-1;
+  }
+  .btn-user-logout {
+    @apply py-1 px-3 rounded-xl uppercase bg-gray-300 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm bg-transition sm:absolute;
   }
   .title-container {
-    @apply flex-shrink-0 flex items-end
+    @apply flex-shrink-0 duration-200;
   }
   .title {
     @apply text-xl text-center uppercase font-semibold;

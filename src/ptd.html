@@ -22,8 +22,9 @@
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
       <header class="header">
-        <div class="logo">
-          <img src="img/logo.png" class="logo-img">
+        <div class="user-container">
+          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
+          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
@@ -35,7 +36,7 @@
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-       </div>
+        </div>
       </header>
       <main class="flex-grow grid">
         <h1>Página Inicial</h1>
