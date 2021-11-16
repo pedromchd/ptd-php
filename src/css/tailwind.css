@@ -69,4 +69,8 @@
   .label-escuro {
     @apply text-sm text-gray-400 dark:text-white duration-200;
   }
+  input[type=radio],
+  input[type=checkbox] {
+    appearance: revert;
+  }
 }

@@ -39,23 +39,16 @@
        </div>
       </header>
       <main class="flex-grow grid">
-        <div>
-          <header>
-            <h3>Usuário: Márcio Torres</h3>
-            <a href="index.html"><button type="button">Sair do sistema</button></a>
-          </header>
+        <form class="place-self-center" name="funcao"  action="ptd.html" method="get" autocomplete="off">
+          <legend>Selecione a função que desempenhará no sistema:</legend>
           <section>
-            <h1>Sistema de Administração de Planos de Trabalho Docente</h1>
-            <h2>Escolha a função que irá desempenhar no sistema:</h2>
-            <form action="" method="get">
-              <select name="funcao_escolhida" id="funcao>
-                <option value="Professor">Professor</option>
-                <option value="Coordenação de Curso">Coordenação de Curso</option>
-              </select>
-              <button type="submit" name="avancar" value="Avançar">Avançar</button>
-            </form>
+            <input type="radio" name="funcao_escolhida" id="Professor" value="Professor">
+            <label for="Professor">Professor</label>
+            <input type="radio" name="funcao_escolhida" id="Coordenação de Curso" value="Coordenação de Curso">
+            <label for="Coordenação de Curso">Coordenação de Curso</label>
           </section>
-        </div>
+          <button type="submit" name="avancar" value="Avançar">Avançar</button>
+        </form>
       </main>
     </div>
   </div>
