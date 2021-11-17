@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sistema de Administração de Planos de Trabalho Docente</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css">
+  <!--<link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script defer src="js/alpinejs.min.js"></script>
+</head>
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="header">
+        <div class="user-container">
+          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
+          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+        </div>
+        <div class="toggle-container">
+          <span class="label-claro">Claro</span>
+          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+            <div class="toggle-dot"></div>
+          </label>
+          <span class="label-escuro">Escuro</span>
+          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+        </div>
+      </header>
+      <main class="flex-grow grid"></main>
+      <script>
+        document.getElementById("senha").submit;
+      </script>
+      <div>
+        <table>
+          <div>
+            <h1>Nome do usuário: Márcio Torres</h1>
+            <h1>Perfil de usuário: Coordenação de Curso</h1>
+          </div>
+        </table>
+      </div>
+      <div class="container">
+        <h2>Sistema de Administração de Planos de Trabalho Docente</h2>
+        <br>
+        <h3>Página Inicial</h3>
+        <br>
+        <h4><b>Análise de PTDs pela Coordenação de Curso</b></h4>
+        PTDs a avaliar: <br>No momento, você não tem PTDs a avaliar.
+        </table><br><br>
+        <table>
+          <div>
+            <form method="get" action="">
+              <input type="hidden" name="id" value="13">
+              <input type="submit" name="botao_editar_perfil" value="Alterar Senha">
+            </form>
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
