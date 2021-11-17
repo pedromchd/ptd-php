@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sistema de Administração de Planos de Trabalho Docente</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script defer src="js/alpinejs.min.js"></script>
+</head>
+
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
+      darkMode = JSON.parse(localStorage.getItem('darkMode'));
+      $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="header">
+        <div class="user-container">
+          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
+          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+        </div>
+        <div class="toggle-container">
+          <span class="label-claro">Claro</span>
+          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+            <div class="toggle-dot"></div>
+          </label>
+          <span class="label-escuro">Escuro</span>
+          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+        </div>
+      </header>
+      <main class="flex-grow grid"></main>
+      <div id="">
+        <table>
+          <div>
+            <h1>
+              <h1>
+          </div>
+        </table>
+      </div><br><br>
+      <h2>Página em desenvolvimento.<br><br>Envie um e-mail para artur.arocha@riogrande.ifrs.edu.br a partir de seu
+        e-mail
+        institucional informando seu esquecimento de senha.</h2>
+      <br><br>
+      <form method="POST" action="../index.html">
+        <input type="submit" value="Voltar à página inicial" name="botao">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
