@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sistema de Administração de Planos de Trabalho Docente</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script defer src="js/alpinejs.min.js"></script>
+</head>
+
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="header">
+        <div class="user-container">
+          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
+          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+        </div>
+        <div class="toggle-container">
+          <span class="label-claro">Claro</span>
+          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+            <div class="toggle-dot"></div>
+          </label>
+          <span class="label-escuro">Escuro</span>
+          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+        </div>
+      </header>
+      <main class="flex-grow grid"></main>
+      <script>document.getElementById("senha").submit;</script>
+      <div id="">
+        <table>
+          <div>
+            <h1>Nome do usuário: Márcio Torres</h1>
+            <h1>Perfil de usuário: Professor</h1>
+          </div>
+        </table>
+      </div>
+      <div class="container">
+        <br>
+        <h2>Edição de Dados do Usuário</h2><br><br>
+        <h2>Nome: Márcio Torres<br>Função: Professor<br><br>
+          <form method="get" action="">Coordenador de Curso:
+            <select name="id_coordenador">
+              <option value="27">Carla Godinho Duarte</option>
+              <option value="42">Delnir Monteiro de Lemos</option>
+              <option value="47">Fabiane Biedrzycka da Silva Galarz</option>
+              <option value="48">Fabiano de Andrade Ferreira</option>
+              <option value="52">Felipe Leite Silva</option>
+              <option value="53">Flávio Galdino Xavier</option>
+              <option value="6" selected>Franciane de Lima Coimbra</option>
+              <option value="55">Gérson dos Santos Nunes</option>
+              <option value="64">Jefferson Rodrigues dos Santos</option>
+              <option value="86">Murilo Vargas da Cunha</option>
+              <option value="13">Márcio Torres</option>
+              <option value="90">Paulo Valério Saraçol</option>
+              <option value="92">Rafael Betito</option>
+            </select>
+            <br><br>
+            <input type="hidden" name="id" value="13">
+            <input type="submit" value="Gravar alteração" name="botao">
+            <input type="submit" value="Voltar à página inicial" name="botao">
+          </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
