@@ -16,15 +16,16 @@
   <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
-          darkMode = JSON.parse(localStorage.getItem('darkMode'));
-          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+<body class="subpixel-antialiased"
+  x-data="{'darkMode': false}"
+  x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
       <header class="header">
-        <div class="user-container">
-          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
-          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        <div class="logo-container">
+          <img src="img/logo.png" class="logo">
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
@@ -41,16 +42,18 @@
       <main class="flex-grow grid">
         <div class="container">
           <h1>Validação de Plano de Trabalho Docente</h1>
-          <form method="POST" action="validacao_de_ptd.php">
+          <form method="GET" action="validacao_de_ptd.php">
             <h1>Digite o código de validação disponível no rodapé do PTD:</h1>
             <div>
               <input type="text" name="codigo">
               <br>
               <input type="submit" value="Verificar validade do PTD" name="botao">
             </div>
-
           </form>
         </div>
+      </main>
+    </div>
+  </div>
 </body>
 
 </html>

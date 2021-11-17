@@ -14,15 +14,16 @@
   <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
-      darkMode = JSON.parse(localStorage.getItem('darkMode'));
-      $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+<body class="subpixel-antialiased"
+  x-data="{'darkMode': false}"
+  x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="page-bg">
       <header class="header">
-        <div class="user-container">
-          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
-          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        <div class="logo-container">
+          <img src="img/logo.png" class="logo">
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
@@ -34,24 +35,14 @@
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-        </div>
+       </div>
       </header>
-      <main class="flex-grow grid"></main>
-      <div id="">
-        <table>
-          <div>
-            <h1>
-              <h1>
-          </div>
-        </table>
-      </div><br><br>
-      <h2>Página em desenvolvimento.<br><br>Envie um e-mail para artur.arocha@riogrande.ifrs.edu.br a partir de seu
-        e-mail
-        institucional informando seu esquecimento de senha.</h2>
-      <br><br>
-      <form method="POST" action="../index.html">
-        <input type="submit" value="Voltar à página inicial" name="botao">
-      </form>
+      <main class="flex-grow grid">
+        <span>Página em desenvolvimento. Envie um e-mail para artur.arocha@riogrande.ifrs.edu.br a partir de seu e-mail institucional informando seu esquecimento de senha.</span>
+        <form method="GET" action="index.html">
+          <input type="submit" value="Voltar à página inicial" name="botao">
+        </form>
+      </main>
     </div>
   </div>
 </body>
