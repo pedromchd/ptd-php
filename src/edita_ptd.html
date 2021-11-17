@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sistema de Administração de Planos de Trabalho Docente</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script defer src="js/alpinejs.min.js"></script>
+</head>
+
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div :class="{'dark': darkMode === true}">
+    <div class="page-bg">
+      <header class="header">
+        <div class="user-container">
+          <span class="font-bold text-xl max-w-sm">Márcio Torres</span>
+          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
+        </div>
+        <div class="toggle-container">
+          <span class="label-claro">Claro</span>
+          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+            <div class="toggle-dot"></div>
+          </label>
+          <span class="label-escuro">Escuro</span>
+          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+        </div>
+      </header>
+      <main class="flex-grow grid"></main>
+      <script>
+        document.getElementById("senha").submit;
+      </script>
+      <div id="">
+        <table>
+          <div>
+            <h1>Nome do usuário: Márcio Torres </h1>
+            <h1> Perfil de usuário: Professor </h1>
+          </div>
+        </table>
+      </div>
+      <div class="container">
+        <h1>Edição do PTD pelo Professor</h1>
+        <br>
+        <div id="">
+          <table>
+            <div>
+              <h2>Professor: </h2>
+              <h2>Márcio Torres</h2>
+            </div>
+            <div>
+              <h2>Período do PTD: <b></h2>
+              <h2>2021/2</b></h2>
+            </div>
+            <form method="get" action="">
+              <div>
+                <h2>Sala de permanência: </h2>
+                <h2><textarea name="sala_permanencia" rows="1" cols="50"></textarea></h2>
+              </div>
+              <div>
+                <h2>Área de conhecimento: </h2>
+                <h2><textarea name="area_conhecimento" rows="2" cols="50"></textarea></h2>
+              </div>
+              <div>
+                <h2>Categoria:</h2>
+                  <select name="categoria">
+                    <option value="Magistério do EBTT">Magistério do EBTT</option>
+                    <option value="Magistério do ES">Magistério do ES</option>
+                  </select>
+              </div>
+              <div>
+                <h2>Regime de trabalho: </h2>
+                  <select name="regime_trabalho">
+                    <option value="20h">20h</option>
+                    <option value="40h">40h</option>
+                    <option value="DE">DE</option>
+                    <option value="Visitante">Visitante</option>
+                  </select>
+              </div>
+          </table>
+          <br><br>
+          <input type="hidden" name="periodo" value=2021/2><input type="hidden" name="id" value=13>
+          <input type="submit" value="Voltar à página inicial" name="botao">
+          <input type="submit" value="Gravar dados do cabeçalho deste PTD" name="botao">
+          </form>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
