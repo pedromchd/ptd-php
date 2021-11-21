@@ -23,8 +23,15 @@
     <div class="page-bg">
       <header class="header">
         <div class="user-container">
-          <span class="user-name">Márcio Torres</span>
-          <a href="index.html"><button class="btn-user-logout">Sair</button></a>
+          <a href="index.html">
+            <button class="btn-user-logout" title="Sair do sistema">
+              <i class="fa fa-sign-out"></i>
+            </button>
+          </a>
+          <section class="user-perfil">
+            <span class="user-funcao">Professor</span>
+            <span class="user-name">Márcio Torres</span>
+          </section>
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
@@ -39,63 +46,46 @@
         </div>
       </header>
       <main class="flex-grow grid">
-        <h1>Página Inicial</h1>
-        <h1>Coordenador de Curso:</h1>
-        <table>
-          <div>
-            <div class="formatacao_borda">
-              <form method="get" action="">
-                <input type="hidden" name="id" value="13">
-                <input type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso">
-              </form>
-            </div>
-            <div class="formatacao_borda"></div>
-            <div class="formatacao_borda">
-              <form method="get" action="">
-                <input type="hidden" name="id" value="13">
-                <input type="submit" name="botao_editar_perfil" value="Alterar Senha">
-              </form>
-            </div>
-          </div>
+        <div class="place-self-center">
+          <span>Coordenador de Curso: Franciane de Lima Coimbra</span>
+          <form name="" action="editar_dados_usuario.html" method="get">
+            <input type="hidden" name="id" value="13">
+            <input type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso">
+          </form>
+          <form name="" action="alterar_senha_usuario.html" method="get">
+            <input type="hidden" name="id" value="13">
+            <input type="submit" name="botao_editar_perfil" value="Alterar Senha">
+          </form>
+        </div>
         </table>
-        <h1>Onde está o PTD?<br>
-          Na tabela abaixo, o botão "Editar PTD" indica que o professor pode editar o seu PTD e encontra-se
-          na coluna
-          "Professor" até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD ao coordenador, o botão
-          "PTD"
-          estará
-          disponível para acesso em modo de visualização na coluna correspondente onde o PTD se encontrar. Caso o
-          coordenador ou
-          as direções coloquem observações, elas podem ser visualizadas na sua respectiva coluna.</h1>
+        <h1>Onde está o PTD? Na tabela abaixo, o botão "Editar PTD" indica que o professor pode editar o seu PTD e encontra-se na coluna "Professor" até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD ao coordenador, o botão "PTD" estará disponível para acesso em modo de visualização na coluna correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas podem ser visualizadas na sua respectiva coluna.</h1>
         <table>
-          <h2>PTD<h2>
-              <h2>Professor</h2>
-              <h3>Coordenação de Curso</h3>
-              <h3>Direção de Extensão</h3>
-              <h3>Direção de Pesquisa</h3>
-              <h3>Direção de Ensino</h3>
-              <h3>Direção Geral</h3>
-              <h4>1</h4>
-              <h4>2021/1</h4>
-              <form method="get" action="">
-                <input type="hidden" name="periodo" value="2021/1">
-                <input type="hidden" name="id" value="13">
-                <input type="submit" value="Editar PTD" name="criarPTD">
-              </form>
-              <h4>1</h4>
-              <h4>2021/2</h4>
-              <form method="get" action="">
-                <input type="hidden" name="periodo" value="2021/2">
-                <input type="hidden" name="id" value="13">
-                <input type="submit" value="Editar PTD" name="criarPTD">
-              </form>
+          <h2>PTD</h2>
+          <h2>Professor</h2>
+          <h3>Coordenação de Curso</h3>
+          <h3>Direção de Extensão</h3>
+          <h3>Direção de Pesquisa</h3>
+          <h3>Direção de Ensino</h3>
+          <h3>Direção Geral</h3>
+          <h4>1</h4>
+          <h4>2021/1</h4>
+          <form method="get" action="">
+            <input type="hidden" name="periodo" value="2021/1">
+            <input type="hidden" name="id" value="13">
+            <input type="submit" value="Editar PTD" name="criarPTD">
+          </form>
+          <h4>1</h4>
+          <h4>2021/2</h4>
+          <form method="get" action="">
+            <input type="hidden" name="periodo" value="2021/2">
+            <input type="hidden" name="id" value="13">
+            <input type="submit" value="Editar PTD" name="criarPTD">
+          </form>
         </table>
-        <h5>Você somente terá submetido o PTD ao Coordenador de Curso se aparecer o botão "PTD" na respectiva
-          coluna da
-          tabela acima. Se estiver aparecendo o botão "Editar PTD" é porque você ainda não submeteu o seu PTD ao
-          Coordenador de
-          Curso.</h5>
+        <h5>Você somente terá submetido o PTD ao Coordenador de Curso se aparecer o botão "PTD" na respectiva coluna da tabela acima. Se estiver aparecendo o botão "Editar PTD" é porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</h5>
+      </main>
     </div>
+  </div>
 </body>
 
 </html>
