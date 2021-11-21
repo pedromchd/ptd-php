@@ -14,7 +14,9 @@
   <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
+<body class="subpixel-antialiased"
+  x-data="{'darkMode': false}"
+  x-init="
     darkMode = JSON.parse(localStorage.getItem('darkMode'));
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
