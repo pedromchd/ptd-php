@@ -14,9 +14,7 @@
   <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased"
-  x-data="{'darkMode': false}"
-  x-init="
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
     darkMode = JSON.parse(localStorage.getItem('darkMode'));
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
@@ -36,22 +34,37 @@
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-       </div>
+        </div>
       </header>
       <main class="flex-grow grid">
-        <form class="place-self-center" name="funcao" action="ptd.html" method="get" autocomplete="off">
-          <legend>Selecione a função que desempenhará no sistema:</legend>
+        <form class="place-self-center bg-gray-200 p-5 rounded-3xl space-y-2 dark:bg-gray-700 bg-text-transition" name="funcao" action="ptd.html" method="get"
+          autocomplete="off">
+          <legend class="font-semibold text-xl">Selecione a função que desempenhará no sistema:</legend>
           <section>
             <input type="radio" name="funcao_escolhida" id="Professor" value="Professor">
-            <label for="Professor">Professor</label>
+            <label for="Professor">Professor</label> <br>
             <input type="radio" name="funcao_escolhida" id="Coordenação de Curso" value="Coordenação de Curso">
             <label for="Coordenação de Curso">Coordenação de Curso</label>
           </section>
-          <button type="submit" name="avancar" value="Avançar">Avançar</button>
+          <style>
+            form input[type=submit] {
+              cursor: pointer;
+              border: 0;
+            }
+            form input[type=radio] {
+              cursor: pointer;
+
+            }
+            ul, ol{
+              list-style: revert;
+              padding: revert;
+            }
+
+          </style>
+          <button class='bg-gray-300 p-1 rounded-xl py-2 px-3 dark:bg-gray-800 bg-transition' type="submit" name="avancar" value="Avançar">Avançar</button>
         </form>
       </main>
     </div>
   </div>
 </body>
-
 </html>
