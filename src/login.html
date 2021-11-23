@@ -37,39 +37,25 @@
         </div>
         <div class="toggle-container">
           <span class="label-claro">Claro</span>
-          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+          <label for="toggle" class="toggle-bg" title="Altera o tema da página">
             <div class="toggle-dot"></div>
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
         </div>
       </header>
-      <main class="flex-grow grid">
-        <form class="place-self-center bg-gray-200 p-5 rounded-3xl space-y-2 dark:bg-gray-700 bg-text-transition" name="funcao" action="ptd.html" method="get"
-          autocomplete="off">
-          <legend class="font-semibold text-xl">Selecione a função que desempenhará no sistema:</legend>
+      <main class="flex-grow grid place-items-center">
+        <form class="p-8 py-6 rounded-3xl space-y-2 bg-gray-200 dark:bg-gray-700 bg-text-transition" action="ptd.html" method="get">
+          <span class="font-semibold text-xl">Selecione a função que desempenhará no sistema:</span>
           <section>
             <input type="radio" name="funcao_escolhida" id="Professor" value="Professor">
-            <label for="Professor">Professor</label> <br>
+            <label for="Professor">Professor</label>
+          </section>
+          <section>
             <input type="radio" name="funcao_escolhida" id="Coordenação de Curso" value="Coordenação de Curso">
             <label for="Coordenação de Curso">Coordenação de Curso</label>
           </section>
-          <style>
-            form input[type=submit] {
-              cursor: pointer;
-              border: 0;
-            }
-            form input[type=radio] {
-              cursor: pointer;
-
-            }
-            ul, ol{
-              list-style: revert;
-              padding: revert;
-            }
-
-          </style>
-          <button class='bg-gray-300 p-1 rounded-xl py-2 px-3 dark:bg-gray-800 bg-transition' type="submit" name="avancar" value="Avançar">Avançar</button>
+          <button class="py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition" type="submit" name="avancar" value="Avançar">Avançar</button>
         </form>
       </main>
     </div>
