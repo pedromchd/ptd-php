@@ -23,25 +23,29 @@
     <div class="page-bg">
       <header class="header">
         <div class="logo-container">
-          <img src="img/logo.png" class="logo">
+          <a href="http://ifrs.edu.br/riogrande" target="_blank" class="logo">
+            <img src="img/logo.png">
+          </a>
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
         <div class="toggle-container">
           <span class="label-claro">Claro</span>
-          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+          <label for="toggle" class="toggle-bg" title="Altera o tema da página">
             <div class="toggle-dot"></div>
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-       </div>
+        </div>
       </header>
-      <main class="flex-grow grid">
-        <span>Página em desenvolvimento. Envie um e-mail para artur.arocha@riogrande.ifrs.edu.br a partir de seu e-mail institucional informando seu esquecimento de senha.</span>
-        <form method="GET" action="index.html">
-          <input type="submit" value="Voltar à página inicial" name="botao">
-        </form>
+      <main class="flex-grow grid place-items-center">
+        <div>
+          <span>Página em desenvolvimento. Envie um e-mail para artur.arocha@riogrande.ifrs.edu.br a partir de seu e-mail institucional informando seu esquecimento de senha.</span>
+          <form action="index.html" method="get">
+            <input type="submit" value="Voltar à página inicial" name="botao">
+          </form>
+        </div>
       </main>
     </div>
   </div>

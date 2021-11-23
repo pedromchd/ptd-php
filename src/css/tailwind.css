@@ -36,8 +36,14 @@
   .login-input {
     @apply h-10 grid place-items-center pr-3;
   }
+  .input-placeholder {
+    @apply placeholder-gray-500 dark:placeholder-gray-400;
+  }
   .cs:not(.fa-lock) {
     @apply pointer-events-auto cursor-pointer;
+  }
+  .forgot-small {
+    @apply text-center text-sm text-blue-700 dark:text-blue-400 duration-200;
   }
   .header {
     @apply px-6 py-4 space-y-4 sm:space-y-0 flex flex-col sm:flex-row sm:sticky sm:top-0 bg-gray-100 dark:bg-gray-800 bg-transition;
@@ -46,7 +52,7 @@
     @apply w-full flex-1 flex items-center justify-center sm:justify-start;
   }
   .logo {
-    @apply w-60 sm:absolute -ml-2 dark:saturate-0 dark:invert dark:brightness-50 duration-200;
+    @apply w-60 sm:absolute -ml-2 dark:saturate-0 dark:invert dark:brightness-50 duration-200 select-none cursor-pointer;
   }
   .user-container {
     @apply w-full flex-1 flex justify-center sm:justify-start items-center space-x-2 bg-text-transition;

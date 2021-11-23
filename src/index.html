@@ -23,29 +23,31 @@
     <div class="page-bg">
       <header class="header">
         <div class="logo-container">
-          <img src="img/logo.png" class="logo">
+          <a href="http://ifrs.edu.br/riogrande" target="_blank" class="logo">
+            <img src="img/logo.png">
+          </a>
         </div>
         <div class="title-container">
           <h1 class="title">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
         <div class="toggle-container">
           <span class="label-claro">Claro</span>
-          <label for="toggle" class="toggle-bg" title="Define o tema da página">
+          <label for="toggle" class="toggle-bg" title="Altera o tema da página">
             <div class="toggle-dot"></div>
           </label>
           <span class="label-escuro">Escuro</span>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
        </div>
       </header>
-      <main class="flex-grow grid">
-        <form class="place-self-center" name="login" action="login.html" method="get" autocomplete="off">
+      <main class="flex-grow grid place-items-center">
+        <form name="login" action="login.html" method="get" autocomplete="off">
           <section class="form-login-outer">
             <section class="input-group-login">
               <div class="login-label">
                 <label for="username"><i class="fa fa-user"></i></label>
               </div>
               <div class="login-input">
-                <input type="text" name="username" id="username" required placeholder="Usuário" class="placeholder-gray-500 dark:placeholder-gray-400" autofocus>
+                <input type="text" name="username" id="username" required placeholder="Usuário" class="input-placeholder" autofocus>
               </div>
             </section>
             <section class="input-group-login">
@@ -53,10 +55,10 @@
                 <label for="senha"><i class="fa fa-lock cs"></i></label>
               </div>
               <div class="login-input">
-                <input type="password" name="senha" id="senha" required placeholder="Senha" class="placeholder-gray-500 dark:placeholder-gray-400">
+                <input type="password" name="senha" id="senha" required placeholder="Senha" class="input-placeholder">
               </div>
             </section>
-            <small class="text-center text-sm text-blue-700 dark:text-blue-400 duration-200">
+            <small class="forgot-small">
               <a href="esqueci_minha_senha.html" class="cursor-pointer hover:underline">Esqueceu usuário ou senha?</a>
             </small>
           </section>
