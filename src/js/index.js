@@ -1,24 +1,23 @@
-const label = document.querySelector('label[for="senha"]');
-const senha = document.login.senha;
+const password_label = document.login.querySelector('label[for="senha"] i');
+const password_input = document.login.senha;
 
-senha.addEventListener('input', () => {
-  if (senha.value.length) {
-    if (label.innerHTML.indexOf('lock') !== -1)
-    label.innerHTML = '<i class="fa fa-eye cs"></i>';
-  }
-  else {
-    senha.type = 'password';
-    label.innerHTML = '<i class="fa fa-lock cs"></i>';
+password_input.addEventListener('input', () => {
+  if (password_input.value.length) {
+    if (password_input.type === 'password') password_label.classList.value = 'fa fa-eye';
+    else password_label.classList.value = 'fa fa-eye-slash';
+  } else {
+    password_input.type = 'password';
+    password_label.classList.value = 'fa fa-lock';
   }
 });
 
-label.addEventListener('click', e => {
-  if (e.target.classList.contains('fa-eye')) {
-    senha.type = 'text';
-    label.innerHTML = '<i class="fa fa-eye-slash cs"></i>';
+password_label.addEventListener('click', () => {
+  if (password_label.classList.contains('fa-eye')) {
+    password_input.type = 'text';
+    password_label.classList.value = 'fa fa-eye-slash';
   } else
-  if (e.target.classList.contains('fa-eye-slash')) {
-    senha.type = 'password';
-    label.innerHTML = '<i class="fa fa-eye cs"></i>';
+  if (password_label.classList.contains('fa-eye-slash')) {
+    password_input.type = 'password';
+    password_label.classList.value = 'fa fa-eye';
   }
 });
