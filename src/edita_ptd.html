@@ -36,65 +36,65 @@
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
         </div>
       </header>
-      <main class="flex-grow grid"></main>
-      <script>
-        document.getElementById("senha").submit;
-      </script>
-      <div id="">
-        <table>
+      <main class="flex-grow grid space-y-10">
+        <div class="place-self-center mt-5 <!--border rounded-2xl px-1 py-1 --> shadow-md bg-gray-300 dark:bg-gray-800 bg-transition">
           <div>
-            <h1>Nome do usuário: Márcio Torres </h1>
-            <h1> Perfil de usuário: Professor </h1>
+            <div class="text-center text-xl italic font-semibold">
+              <h1>Edição do PTD pelo Professor</h1>
+            </div>
           </div>
-        </table>
-      </div>
-      <div class="container">
-        <h1>Edição do PTD pelo Professor</h1>
-        <br>
-        <div id="">
-          <table>
-            <div>
-              <h2>Professor: </h2>
-              <h2>Márcio Torres</h2>
-            </div>
-            <div>
-              <h2>Período do PTD: <b></h2>
-              <h2>2021/2</b></h2>
-            </div>
-            <form method="get" action="">
-              <div>
-                <h2>Sala de permanência: </h2>
-                <h2><textarea name="sala_permanencia" rows="1" cols="50"></textarea></h2>
-              </div>
-              <div>
-                <h2>Área de conhecimento: </h2>
-                <h2><textarea name="area_conhecimento" rows="2" cols="50"></textarea></h2>
-              </div>
-              <div>
-                <h2>Categoria:</h2>
-                  <select name="categoria">
+          <div class="container">
+            <div id="">
+              <table class="">
+                <div class="flex space-x-4">
+                  <span class="font-semibold p-6 > * + *">Professor:</span>
+                  <span class="p-6">Márcio Torres</span>
+                </div>
+                <div class="flex">
+                  <h2 class="font-semibold p-6">Período do PTD: <b></h2>
+                  <h2 class="px-1 p-6">2021/2</b></h2>
+                </div>
+                <div class="flex ">
+                  <h2 class="p-6">Sala de permanência: </h2>
+                  <textarea class="border p-2 " name="sala_permanencia" rows="1" cols="50"></textarea>
+                </div>
+                <div class="flex ">
+                  <h2 class="p-6">Área de conhecimento: </h2>
+                  <textarea class="border p-2" name="area_conhecimento" rows="2" cols="50"></textarea>
+                </div>
+                <div class="flex">
+                  <h2 class="p-6">Categoria:</h2>
+                  <select class="px-1 p-6 cursor-pointer" name="categoria">
                     <option value="Magistério do EBTT">Magistério do EBTT</option>
                     <option value="Magistério do ES">Magistério do ES</option>
                   </select>
-              </div>
-              <div>
-                <h2>Regime de trabalho: </h2>
-                  <select name="regime_trabalho">
+                </div>
+                <div class="flex p-6">
+                  <h2>Regime de trabalho: </h2>
+                  <select class="px-1 cursor-pointer" name="regime_trabalho">
                     <option value="20h">20h</option>
                     <option value="40h">40h</option>
                     <option value="DE">DE</option>
                     <option value="Visitante">Visitante</option>
                   </select>
-              </div>
-          </table>
-          <br><br>
-          <input type="hidden" name="periodo" value=2021/2><input type="hidden" name="id" value=13>
-          <input type="submit" value="Voltar à página inicial" name="botao">
-          <input type="submit" value="Gravar dados do cabeçalho deste PTD" name="botao">
-          </form>
+                </div>
+              </table>
+              <br><br>
+              <input type="hidden" name="periodo" value=2021/2><input type="hidden" name="id" value=13>
+              <input
+                class="border-2 border-opacity-25 <!--hover:border-gray-400 --> py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer"
+                type="submit" value="Voltar à página inicial" name="botao">
+              <input
+                class="border-2 border-opacity-25 <!--hover:border-gray-400  --> py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer"
+                type="submit" value="Gravar dados do cabeçalho deste PTD" name="botao">
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
+
+    </main>
+
 </body>
 
 </html>
