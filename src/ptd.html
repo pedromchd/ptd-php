@@ -14,9 +14,7 @@
   <script defer src="js/alpinejs.min.js"></script>
 </head>
 
-<body class="subpixel-antialiased"
-  x-data="{'darkMode': false}"
-  x-init="
+<body class="subpixel-antialiased" x-data="{'darkMode': false}" x-init="
     darkMode = JSON.parse(localStorage.getItem('darkMode'));
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
@@ -46,57 +44,91 @@
         </div>
       </header>
       <main class="flex-grow grid place-items-center">
-        <div class="max-w-3xl">
-          <span>Página incial</span>
-          <section>
-            <span>Coordenador de Curso: Franciane de Lima Coimbra</span>
-            <form action="editar_dados_usuario.html" method="get">
-              <input type="hidden" name="id" value="13">
-              <input type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso">
-            </form>
-            <form action="alterar_senha_usuario.html" method="get">
-              <input type="hidden" name="id" value="13">
-              <input type="submit" name="botao_editar_perfil" value="Alterar Senha">
-            </form>
+        <div class="max-w-3xl space-y-4">
+          <div class="text-center text-3xl not-italic font-semibold">
+            <span>Página inicial</span>
+          </div>
+          <section class="space-y-2.5">
+            <span class="font-semibold text-xl">Coordenador de Curso: Franciane de Lima Coimbra</span>
+            <div class="flex space-x-1.5">
+              <form action="editar_dados_usuario.html" method="get">
+                <input type="hidden" name="id" value="13">
+                <input class="py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer"
+                  type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso">
+              </form>
+              <form action="alterar_senha_usuario.html" method="get">
+                <input type="hidden" name="id" value="13">
+                <input class="py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer"
+                  type="submit" name="botao_editar_perfil" value="Alterar Senha">
+              </form>
+            </div>
           </section>
-          <section>
+          <section class="space-y-6">
             <table>
-              <tr>
+              <tr class="font-semibold">
                 <td colspan="2">PTD</td>
-                <td>Professor</td>
+                <td class="px-2">Professor</td>
                 <td colspan="2">Coordenação de Curso</td>
                 <td colspan="2">Direção de Extensão</td>
                 <td colspan="2">Direção de Pesquisa</td>
                 <td colspan="2">Direção de Ensino</td>
                 <td colspan="2">Direção Geral</td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>2021/1</td>
+              <tr class="font-semibold">
+                <td class="">1</td>
+                <td class="px-1 py-1">2021/1</td>
                 <td>
                   <form method="get" action="edita_ptd.html">
                     <input type="hidden" name="periodo" value="2021/1">
                     <input type="hidden" name="id" value="13">
-                    <input type="submit" value="Editar PTD" name="criarPTD">
+                    <input
+                      class="py-2 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer text-xs "
+                      type="submit" value="Editar PTD" name="criarPTD">
                   </form>
                 </td>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>2021/2</td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="font-semibold">
+                <td>1</td>
+                <td class="px-1 py-2">2021/2</td>
                 <td>
                   <form method="get" action="">
                     <input type="hidden" name="id_ptd" value="171">
                     <input type="hidden" name="id" value="13">
-                    <input type="submit" name="botao_visualiza" value="PTD">
+                    <input
+                      class="py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer text-xs"
+                      type="submit" name="botao_visualiza" value="PTD">
                   </form>
                 </td>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </table>
-            <p class="text-justify">Onde está o PTD? Na tabela abaixo, o botão "Editar PTD" indica que o professor pode editar o seu PTD e encontra-se na coluna "Professor" até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD ao coordenador, o botão "PTD" estará disponível para acesso em modo de visualização na coluna correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas podem ser visualizadas na sua respectiva coluna. Você somente terá submetido o PTD ao Coordenador de Curso se aparecer o botão "PTD" na respectiva coluna da tabela acima. Se estiver aparecendo o botão "Editar PTD" é porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</p>
+            <p class="font-semibold text-3xl">Onde está o PTD?</p>
+            <p class="text-justify italic">Na tabela abaixo, o botão "Editar PTD" indica que o professor pode editar o
+              seu PTD
+              e encontra-se na coluna "Professor" até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD
+              ao coordenador, o botão "PTD" estará disponível para acesso em modo de visualização na coluna
+              correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas podem
+              ser visualizadas na sua respectiva coluna. Você somente terá submetido o PTD ao Coordenador de Curso se
+              aparecer o botão "PTD" na respectiva coluna da tabela acima. Se estiver aparecendo o botão "Editar PTD" é
+              porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</p>
           </section>
         </div>
       </main>
