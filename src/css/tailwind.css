@@ -3,89 +3,17 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    -webkit-backface-visibility: hidden;
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    appearance: revert;
+  }
   .transition-bg-color {
     transition-property: background-color;
   }
   .bg-transition {
     @apply transition-bg-color duration-200;
-  }
-  .bg-text-transition {
-    @apply transition-colors duration-200;
-  }
-  .page-bg {
-    @apply min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-white bg-transition;
-  }
-  .toggle-bg {
-    @apply w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-200 ease-in-out dark:bg-gray-600;
-  }
-  .toggle-dot {
-    @apply bg-white w-4 h-4 rounded-full shadow-md transform duration-200 ease-in-out dark:translate-x-3;
-  }
-  .form-login-outer {
-    @apply text-xl relative z-20 flex flex-col p-8 pb-4 rounded-3xl space-y-4 shadow-md bg-gray-200 dark:bg-gray-700 bg-transition;
-  }
-  .btn-login-inner {
-    @apply w-full text-center font-semibold uppercase relative -top-6 pt-10 pb-4 rounded-b-3xl select-none cursor-pointer bg-gray-300 dark:bg-gray-800 bg-text-transition;
-  }
-  .input-group-login {
-    @apply flex shadow-md bg-gray-300 dark:bg-gray-800 bg-text-transition;
-  }
-  .login-label {
-    @apply w-10 h-10 grid place-items-center;
-  }
-  .login-input {
-    @apply h-10 grid place-items-center pr-3;
-  }
-  .input-placeholder {
-    @apply placeholder-gray-500 dark:placeholder-gray-400;
-  }
-  .cs:not(.fa-lock) {
-    @apply pointer-events-auto cursor-pointer;
-  }
-  .forgot-small {
-    @apply text-center text-sm text-blue-700 dark:text-blue-400 duration-200;
-  }
-  .header {
-    @apply px-6 py-4 space-y-4 sm:space-y-0 flex flex-col sm:flex-row sm:sticky sm:top-0 bg-gray-100 dark:bg-gray-800 bg-transition;
-  }
-  .logo-container {
-    @apply w-full flex-1 flex items-center justify-center sm:justify-start;
-  }
-  .logo {
-    @apply w-60 sm:absolute -ml-2 dark:saturate-0 dark:invert dark:brightness-50 duration-200 select-none cursor-pointer;
-  }
-  .user-container {
-    @apply w-full flex-1 flex justify-center sm:justify-start items-center space-x-2 bg-text-transition;
-  }
-  .user-perfil {
-    @apply flex flex-col -space-y-1;
-  }
-  .user-funcao {
-    @apply font-light;
-  }
-  .user-name {
-    @apply text-xl max-w-sm truncate;
-  }
-  .btn-user-logout {
-    @apply p-2 pl-3 rounded-md uppercase bg-gray-300 dark:bg-gray-700 shadow-sm bg-transition;
-  }
-  .title-container {
-    @apply flex-shrink-0 duration-200;
-  }
-  .title {
-    @apply text-xl text-center uppercase font-semibold;
-  }
-  .toggle-container {
-    @apply w-full flex-1 flex items-center justify-center sm:justify-end space-x-2 select-none;
-  }
-  .label-claro {
-    @apply text-sm dark:text-gray-500 duration-200;
-  }
-  .label-escuro {
-    @apply text-sm text-gray-400 dark:text-white duration-200;
-  }
-  input[type=radio],
-  input[type=checkbox] {
-    appearance: revert;
   }
 }
