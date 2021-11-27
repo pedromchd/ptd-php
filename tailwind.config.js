@@ -7,7 +7,14 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        '88': '22rem'
+      },
+      transitionProperty: {
+        'bg-color': 'background-color'
+      }
+    },
   },
   variants: {
     extend: {},

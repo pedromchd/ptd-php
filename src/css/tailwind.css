@@ -10,10 +10,4 @@
   input[type=checkbox] {
     appearance: revert;
   }
-  .transition-bg-color {
-    transition-property: background-color;
-  }
-  .bg-transition {
-    @apply transition-bg-color duration-200;
-  }
 }

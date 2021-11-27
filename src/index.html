@@ -21,7 +21,7 @@
     $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div :class="{'dark': darkMode === true}">
     <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white transition-colors duration-200 flex flex-col">
-      <header class="h-24 max-h-24 bg-gray-100 dark:bg-gray-800 bg-transition flex items-center px-4 sticky top-0">
+      <header class="h-24 max-h-24 bg-gray-100 dark:bg-gray-800 transition-bg-color duration-200 flex items-center px-4 sticky top-0">
         <div class="w-full flex-grow flex">
           <a href="http://ifrs.edu.br/riogrande" target="_blank" class="cursor-pointer">
             <img src="img/logo.png" class="w-64 dark:invert dark:saturate-0 dark:brightness-0 duration-200">
@@ -31,24 +31,33 @@
           <h1 class="font-semibold text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
         </div>
         <div class="w-full flex-grow flex flex-row-reverse items-center">
-          <label for="toggle" class="w-6 h-12 py-1 rounded-full bg-gray-300 dark:bg-gray-600 bg-transition relative cursor-pointer shadow-sm flex flex-col items-center justify-between">
+          <label for="toggle" class="w-6 h-12 py-1 rounded-full bg-gray-300 dark:bg-gray-600 transition-bg-color duration-200 relative cursor-pointer shadow-sm flex flex-col items-center justify-between">
             <div class="w-5 h-5 rounded-full bg-white absolute dark:translate-y-5 duration-200 shadow-md"></div>
             <i class="fa fa-moon-o text-gray-300"></i>
             <i class="fa fa-sun-o text-gray-600"></i>
           </label>
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
+          <!-- <a href="index.html" class="mx-3">
+            <button class="w-10 h-11 pl-1 rounded-lg bg-gray-300 dark:bg-gray-600 transition-bg-color duration-200 shadow-sm grid place-items-center">
+              <i class="fa fa-sign-out"></i>
+            </button>
+          </a>
+          <div class="flex flex-col items-end justify-center -space-y-1">
+            <span class="font-light">Professor</span>
+            <span class="text-xl max-w-xs truncate">Márcio Torres</span>
+          </div> -->
         </div>
       </header>
       <main class="flex-grow grid place-items-center">
         <div class="wrapper">
-          <div class="bg-gray-200 dark:bg-gray-800 bg-transition rounded-3xl shadow-md">
+          <div class="bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 rounded-3xl shadow-md w-88">
             <form name="login" action="login.html" method="get" autocomplete="off">
-              <div class="bg-gray-100 dark:bg-gray-700 bg-transition px-8 pt-8 pb-4 rounded-3xl space-y-3 shadow-md">
-                <div class="bg-gray-200 dark:bg-gray-800 bg-transition text-xl flex items-center shadow-md h-11">
+              <div class="bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 p-8 pb-4 rounded-3xl space-y-3 shadow-md">
+                <div class="bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 text-xl flex items-center shadow-md h-11">
                   <label for="username" class="w-10 grid place-items-center"><i class="fa fa-user"></i></label>
                   <input type="text" name="username" id="username" placeholder="Usuário" required autofocus class="mr-3">
                 </div>
-                <div class="bg-gray-200 dark:bg-gray-800 bg-transition text-xl flex items-center shadow-md h-11">
+                <div class="bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 text-xl flex items-center shadow-md h-11">
                   <label for="senha" class="w-10 grid place-items-center"><i class="fa fa-lock"></i></label>
                   <input type="password" name="senha" id="senha" placeholder="Senha" required class="mr-3">
                 </div>

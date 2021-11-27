@@ -1,4 +1,4 @@
-const password_label = document.login.querySelector('label[for="senha"] i');
+const password_label = document.login.querySelector('label[for=senha] i');
 const password_input = document.login.senha;
 
 password_input.addEventListener('input', () => {
