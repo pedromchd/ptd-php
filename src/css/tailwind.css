@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components {
+  [x-cloak] { display: none !important; }
   body {
     -webkit-backface-visibility: hidden;
   }
