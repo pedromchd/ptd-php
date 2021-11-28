@@ -4,9 +4,7 @@
 
 @layer components {
   [x-cloak] { display: none !important; }
-  body {
-    -webkit-backface-visibility: hidden;
-  }
+  body { -webkit-backface-visibility: hidden; }
   input[type=radio],
   input[type=checkbox] {
     appearance: revert;
