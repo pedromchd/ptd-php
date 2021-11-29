@@ -50,12 +50,12 @@
                   <span><i class="fa fa-key"></i></span>
                 </button>
               </form>
-              <a href="index.html">
-                <button class="rounded-b-lg w-full p-3.5 bg-gray-200 dark:bg-gray-700 hover:bg-transparent dark:hover:bg-transparent transition-bg-color duration-200 flex justify-between cursor-pointer select-none">
+              <form action="index.html" method="get">
+                <button type="submit" name="sair" value="Sair" class="rounded-b-lg w-full p-3.5 bg-gray-200 dark:bg-gray-700 hover:bg-transparent dark:hover:bg-transparent transition-bg-color duration-200 flex justify-between cursor-pointer select-none">
                   <span>Sair do Sistema</span>
                   <span><i class="fa fa-sign-out"></i></span>
                 </button>
-              </a>
+              </form>
             </div>
           </div>
           <div class="mr-3 -space-y-1 flex flex-col items-end justify-center">
@@ -65,100 +65,71 @@
         </div>
       </header>
       <main class="flex-grow grid place-items-center">
-        <div class="wrapper max-w-3xl space-y-10">
-          <div class="text-center text-3xl not-italic font-semibold">
-            <span class="font-semibold italic">Página inicial</span>
-          </div>
-          <section class="space-y-2.5">
-            <span class="font-semibold text-xl">Coordenador de Curso: Franciane de Lima Coimbra</span>
-            <div class="flex space-x-1.5">
+        <div class="wrapper max-w-7xl grid grid-cols-3 gap-4">
+          <div class="col-span-2 p-8 space-y-3 rounded-3xl shadow-md bg-gray-100 dark:bg-gray-800 transition-bg-color duration-200">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-lg">Coordenador(a) de Curso: Franciane de Lima Coimbra</span>
               <form action="editar_dados_usuario.html" method="get">
                 <input type="hidden" name="id" value="13">
-                <input
-                  class="border-2 border-opacity-25 hover:border-gray-400 py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 cursor-pointer"
-                  type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso">
-              </form>
-              <form action="alterar_senha_usuario.html" method="get">
-                <input type="hidden" name="id" value="13">
-                <input
-                  class="border-2 border-opacity-25 hover:border-gray-400 py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 cursor-pointer"
-                  type="submit" name="botao_editar_perfil" value="Alterar Senha">
+                <input type="submit" name="botao_editar_perfil" value="Alterar Coordenador de Curso" class="px-2 py-1 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 font-light cursor-pointer">
               </form>
             </div>
-          </section>
-          <section class="space-y-6">
-            <table>
-              <tr class="font-semibold">
-                <td colspan="2">PTD</td>
-                <td class="px-2">Professor</td>
-                <td class="px-3" colspan="2">Coordenação de Curso</td>
-                <td colspan="2">Direção de Extensão</td>
-                <td colspan="2">Direção de Pesquisa</td>
-                <td colspan="2">Direção de Ensino</td>
-                <td colspan="2">Direção Geral</td>
-              </tr>
-              <tr class="font-semibold">
-                <td class="">1</td>
-                <td class="px-1 py-1">2021/1</td>
-                <td>
-                  <form method="get" action="edita_ptd.html">
-                    <input type="hidden" name="periodo" value="2021/1">
-                    <input type="hidden" name="id" value="13">
-                    <input
-                      class="border-2 border-opacity-25 hover:border-gray-400 py-2 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 cursor-pointer text-xs "
-                      type="submit" value="Editar PTD" name="criarPTD">
-                  </form>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="font-semibold">
-                <td>1</td>
-                <td class="px-1 py-2">2021/2</td>
-                <td>
-                  <form method="get" action="">
-                    <input type="hidden" name="id_ptd" value="171">
-                    <input type="hidden" name="id" value="13">
-                    <input
-                      class="border-2 border-opacity-25 hover:border-gray-400 py-2 px-3 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 cursor-pointer text-xs"
-                      type="submit" name="botao_visualiza" value="PTD">
-                  </form>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-            <div
-              class="border-gray border-opacity-25 py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 space-y-1">
-              <p class="py-2 font-semibold text-3xl">Onde está o PTD?</p>
-              <p class="text-justify italic">Na tabela abaixo, o botão "Editar PTD" indica que o professor pode editar o
-                seu PTD
-                e encontra-se na coluna "Professor" até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD
-                ao coordenador, o botão "PTD" estará disponível para acesso em modo de visualização na coluna
-                correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas
-                podem
-                ser visualizadas na sua respectiva coluna. Você somente terá submetido o PTD ao Coordenador de Curso se
-                aparecer o botão "PTD" na respectiva coluna da tabela acima. Se estiver aparecendo o botão "Editar PTD"
-                é
-                porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</p>
+            <div class="shadow-md border border-gray-400">
+              <table>
+                <tbody class="divide-y divide-gray-400">
+                  <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                    <td class="p-2" colspan="2">PTD</td>
+                    <td class="p-2">Professor</td>
+                    <td class="p-2">Coordenação de Curso</td>
+                    <td class="p-2">Direção de Extensão</td>
+                    <td class="p-2">Direção de Pesquisa</td>
+                    <td class="p-2">Direção de Ensino</td>
+                    <td class="p-2">Direção Geral</td>
+                  </tr>
+                  <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                    <td class="p-2">1</td>
+                    <td class="p-2">2021/1</td>
+                    <td class="p-2">
+                      <form action="edita_ptd.html" method="get">
+                        <input type="hidden" name="periodo" value="2021/1">
+                        <input type="hidden" name="id" value="13">
+                        <button type="submit" name="criarPTD" value="Editar PTD" title="Editar PTD" class="w-full h-10 p-1 rounded-lg border border-gray-400 text-center uppercase">Editar</button>
+                      </form>
+                    </td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                  </tr>
+                  <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                    <td class="p-2">1</td>
+                    <td class="p-2">2021/2</td>
+                    <td class="p-2"></td>
+                    <td class="p-2">
+                      <form action="" method="get">
+                        <input type="hidden" name="id_ptd" value="171">
+                        <input type="hidden" name="id" value="13">
+                        <button type="submit" name="botao_visualiza" value="PTD" title="Visualizar PTD" class="w-full h-10 p-1 rounded-lg border border-gray-400 text-center uppercase">Ver</button>
+                      </form>
+                    </td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-          </section>
+            <div class="space-y-1">
+              <span class="font-semibold italic text-xl">Observações:</span>
+              <p class="text-justify">Nenhuma observação no momento.</p>
+            </div>
+          </div>
+          <div class="p-8 space-y-2 rounded-3xl shadow-md bg-gray-100 dark:bg-gray-800 transition-bg-color duration-200">
+            <span class="font-semibold italic text-xl">"Onde está o PTD?"</span>
+            <p class="text-justify">Na tabela ao lado, o botão <em class="italic">"EDITAR"</em> indica que o professor pode editar o seu PTD e encontra-se na coluna <em class="italic">"Professor"</em> até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD ao coordenador, o botão <em class="italic">"VER"</em> estará disponível para acesso em modo de visualização na coluna correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas podem ser visualizadas logo abaixo da tabela. Você somente terá submetido o PTD ao Coordenador de Curso se aparecer o botão <em class="italic">"VER"</em> na respectiva coluna desta mesma tabela. Se estiver aparecendo o botão <em class="italic">"EDITAR"</em> é porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</p>
+          </div>
         </div>
       </main>
     </div>
