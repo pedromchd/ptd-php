@@ -5,6 +5,6 @@
 @layer components {
   [x-cloak] { display: none !important; }
   body { -webkit-backface-visibility: hidden; }
-  input[type=radio], input[type=checkbox] { appearance: revert; }
+  input[type=radio], input[type=checkbox], select { appearance: revert; }
   td { @apply align-middle; }
 }
