@@ -72,57 +72,72 @@
           </div>
         </div>
       </header>
-      <main class="flex-grow grid place-items-center">
-        <div class="wrapper max-w-3xl space-y-10">
-          <div class="text-center text-3xl not-italic font-semibold">
-            <span class="font-semibold italic">Página inicial</span>
+      <main class="space-y-5 grid place-items-center">
+        <br>
+        <div class="text-center text-3xl not-italic font-semibold">
+          <h1 class="font-semibold italic">Página inicial</h1>
+        </div>
+        <span class="text-lg">Análise de PTDs pela Coordenação de Curso:</span>
+        <div class="wrapper max-w-xl">
+          <div
+            class="place-self-center mt-5 <!--border rounded-2xl px-2 py-2 --> shadow-md bg-gray-300 dark:bg-gray-800 bg-transition">
+
+
+            <div class="shadow-md border border-gray-400">
+              <table>
+                <tbody class="divide-y divide-gray-400">
+                  <tr
+                    class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                    <td class="p-2" colspan="2">Período </td>
+                    <td class="p-2">Professor</td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                    <td class="p-2"></td>
+                  </tr>
+                  <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                    <td class="p-2">1</td>
+                    <td class="p-2">2021/2</td>
+                    <td class="p-2">Igor Avila Pereira</td>
+                    <td class="p-2">
+                      <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input
+                          type="hidden" name="id_do_professor_submeteu_o_ptd" value="59">
+                        <input type="submit" value="Avaliar PTD" name="botao"
+                          class="px-2 py-1 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 font-light cursor-pointer">
+                      </form>
+                    </td>
+                    <td class="p-2">
+                      <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input
+                          type="hidden" name="id" value="13"><input type="submit" value="Devolver PTD ao professor"
+                          name="Devolver_PTD_ao_professor"
+                          class="px-2 py-1 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 font-light cursor-pointer">
+                      </form>
+                    </td>
+                    <td class="p-2">
+                      <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input
+                          type="hidden" name="id" value="13"><input type="submit" value="Aprovar PTD" name="aprovar_ptd"
+                          class="px-2 py-1 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 font-light cursor-pointer">
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="space-y-1">
+              <span class="font-semibold italic text-xl">Observações:</span>
+              <p class="text-justify">Nenhuma observação no momento.</p>
+            </div>
+            <br>
+            <div class="">
+              <form method="get" action="">
+                <input type="hidden" name="id" value="13">
+                <input type="submit" name="botao_editar_perfil" value="Alterar Senha"
+                  class="px-2 py-1 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 font-light cursor-pointer">
+              </form>
+            </div>
+            </td>
+            </tr>
+            </table>
           </div>
-            <span>Análise de PTDs pela Coordenação de Curso</span>
-            <span>PTDs a avaliar:</span>
-            <table>
-              <tr>
-                <th></th>
-                <th>Período</th>
-                <th>Professor</th>
-                <th>Observação da Coordenação de Curso</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-              <tr>
-                <td></td>
-                <td>2021/2</td>
-                <td>Igor Avila Pereira</td>
-                <td></td>
-                <td>
-                  <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input type="hidden"
-                    name="id_do_professor_submeteu_o_ptd" value="59"><input type="submit" value="Avaliar PTD"
-                    name="botao">
-                  </form>
-                </td>
-                <td>
-                  <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input type="hidden"
-                  name="id" value="13"><input type="submit" value="Devolver PTD ao professor"
-                  name="Devolver_PTD_ao_professor">
-                  </form>
-                </td>
-                <td>
-                  <form method="get" action=""><input type="hidden" name="id_do_ptd" value="173"><input type="hidden"
-                    name="id" value="13"><input type="submit" value="Aprovar PTD" name="aprovar_ptd">
-                  </form>
-                </td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <td>
-                  <form method="get" action="">
-                    <input type="hidden" name="id" value="13">
-                    <input type="submit" name="botao_editar_perfil" value="Alterar Senha">
-                  </form>
-                </td>
-              </tr>
-            </table>
         </div>
       </main>
     </div>
