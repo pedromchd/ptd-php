@@ -70,6 +70,7 @@
           <div class="w-88 rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
             <form action="ptd.html" method="get" autocomplete="off">
               <div class="p-8 space-y-3 rounded-3xl shadow-md bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200">
+                <small class="text-sm text-red-600 dark:text-red-400 duration-200" x-ref="small">A senha precisa ter no mínimo 8 caracteres. <br>Evite senhas repetidas de outros serviços.</small>
                 <div class="h-11 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center text-xl" x-data="{'eye': false, 'show': false}">
                   <label for="senha1" class="w-10 grid place-items-center"><i class="fa fa-key" :class="{'fa-key': !eye, 'fa-eye': eye && !show, 'fa-eye-slash': eye && show}" @click="show = !show && eye"></i></label>
                   <input type="password" name="senha1" id="senha1" placeholder="Digite a senha nova" class="mr-3" @input="eye = $el.value.length > 0; if (!eye) show = false" :type="(show) ? 'text' : 'password'" autofocus minlength="8">
@@ -78,7 +79,6 @@
                   <label for="senha2" class="w-10 grid place-items-center"><i class="fa fa-key" :class="{'fa-key': !eye, 'fa-eye': eye && !show, 'fa-eye-slash': eye && show}" @click="show = !show && eye"></i></label>
                   <input type="password" name="senha2" id="senha2" placeholder="Repita a senha nova" class="mr-3" @input="eye = $el.value.length > 0; if (!eye) show = false" :type="(show) ? 'text' : 'password'">
                 </div>
-                <!-- <small class="w-full text-sm text-center text-red-600 dark:text-red-400 duration-200" x-ref="small">As senhas não correspondem</small> -->
               </div>
               <input type="hidden" name="id" value="13">
               <div class="grid grid-cols-2 divide-x divide-gray-400">
