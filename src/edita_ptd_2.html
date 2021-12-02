@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Sistema de Administração de Planos de Trabalho Docente</title>
+  <title>Editar PTD - Sistema de Administração de Planos de Trabalho Docente</title>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/reset.css">
-  <!--<link rel="stylesheet" href="css/tailwind.min.css"> DESCOMENTAR TODAS MENOS ESTA LINHA -->
+  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> -->
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <script defer src="js/alpinejs.min.js"></script>
@@ -65,180 +65,228 @@
         </div>
       </header>
       <main class="flex-grow grid place-items-center">
-        <div class="wrapper max-w-7xl grid grid-cols-5 rounded-3xl shadow-md" x-data="{'openedTab': 1}">
-          <div class="p-8 pr-0 space-y-2 rounded-l-3xl bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex flex-col">
-            <input type="button" name="tab1" value="Cabeçalho" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 1" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 1, 'bg-gray-300 dark:bg-gray-600': openedTab !== 1}">
-            <input type="button" name="tab2" value="Disciplinas" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 2" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 2, 'bg-gray-300 dark:bg-gray-600': openedTab !== 2}">
-            <input type="button" name="tab3" value="Complementares" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 3" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 3, 'bg-gray-300 dark:bg-gray-600': openedTab !== 3}">
-            <input type="button" name="tab4" value="Pesquisa" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 4" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 4, 'bg-gray-300 dark:bg-gray-600': openedTab !== 4}">
-            <input type="button" name="tab5" value="Extensão" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 5" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 5, 'bg-gray-300 dark:bg-gray-600': openedTab !== 5}">
-            <input type="button" name="tab6" value="Adminsitração" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 6" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 6, 'bg-gray-300 dark:bg-gray-600': openedTab !== 6}">
-            <input type="button" name="tab7" value="Atividades" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 7" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 7, 'bg-gray-300 dark:bg-gray-600': openedTab !== 7}">
-            <input type="button" name="tab8" value="Observações" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 8" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 8, 'bg-gray-300 dark:bg-gray-600': openedTab !== 8}">
-          </div>
-          <div class="col-span-4 p-8 pl-0 rounded-r-3xl bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 flex flex-col" x-show="openedTab === 1" x-cloak>
-              <span>Professor: Márcio Torres</span>
-              <span>Período do PTD: 2021/1</span>
-              <span>Sala de permanência: 1010</span>
-              <span>Área de conhecimento: Informática</span>
-              <span>Categoria: Magistério do EBTT</span>
-              <span>Regime de trabalho: DE</span>
-              <span>Carga horária semanal cadastrada neste PTD: 0h</span>
+        <div class="wrapper max-w-4xl" x-data="{'openedTab': 1}">
+          <div class="rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid grid-cols-5">
+            <div class="p-8 pr-0 flex flex-col justify-between">
+              <input type="button" name="tab1" id="1" value="Cabeçalho" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 1" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 1, 'bg-gray-300 dark:bg-gray-600': openedTab !== 1}">
+              <input type="button" name="tab2" id="2" value="Disciplinas" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 2" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 2, 'bg-gray-300 dark:bg-gray-600': openedTab !== 2}">
+              <input type="button" name="tab3" id="3" value="Complementares" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 3" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 3, 'bg-gray-300 dark:bg-gray-600': openedTab !== 3}">
+              <input type="button" name="tab4" id="4" value="Pesquisa" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 4" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 4, 'bg-gray-300 dark:bg-gray-600': openedTab !== 4}">
+              <input type="button" name="tab5" id="5" value="Extensão" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 5" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 5, 'bg-gray-300 dark:bg-gray-600': openedTab !== 5}">
+              <input type="button" name="tab6" id="6" value="Adminsitração" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 6" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 6, 'bg-gray-300 dark:bg-gray-600': openedTab !== 6}">
+              <input type="button" name="tab7" id="7" value="Atividades" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 7" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 7, 'bg-gray-300 dark:bg-gray-600': openedTab !== 7}">
+              <input type="button" name="tab8" id="8" value="Observações" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 8" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 8, 'bg-gray-300 dark:bg-gray-600': openedTab !== 8}">
             </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 2" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2"></td>
-                      <td class="p-2">Disciplina</td>
-                      <td class="p-2">Turma</td>
-                      <td class="p-2">Grupo</td>
-                      <td class="p-2">Curso</td>
-                      <td class="p-2">C.H.</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2" colspan="5">Total</td>
-                      <td class="p-2">0</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="col-span-4 h-110 max-h-110 p-8 pl-0">
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 1" x-cloak>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p>Professor: Márcio Torres</p>
+                    <p>Período do PTD: 2021/1</p>
+                    <div class="grid grid-cols-2 gap-3">
+                      <div class="space-y-1">
+                        <label for="sala_permanencia">Sala de permanência:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="sala_permanencia" id="sala_permanencia" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="area_conhecimento">Área de conhecimento:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="area_conhecimento" id="area_conhecimento" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <span>Categoria</span>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center">
+                          <select name="categoria" id="categoria" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                            <option value="Magistério do EBTT">Magistério do EBTT</option>
+                            <option value="Magistério do ES">Magistério do ES</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <span>Regime de trabalho:</span>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center">
+                          <select name="regime_trabalho" id="regime_trabalho" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                            <option value="20h">20h</option>
+                            <option value="40h">40h</option>
+                            <option value="DE" selected>DE</option>
+                            <option value="Visitante">Visitante</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Carga horária semanal cadastrada neste PTD: 0h</p>
+                    <input type="hidden" name="periodo" value=2021/1>
+                    <input type="hidden" name="id" value="13">
+                    <button type="submit" name="botao" value="Gravar dados do cabeçalho deste PTD" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                      Salvar no PTD
+                    </button>
+                  </div>
+                </form>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 3" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2"></td>
-                      <td class="p-2">Atividades Complementares de Ensino</td>
-                      <td class="p-2">C.H.</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2" colspan="2">Total</td>
-                      <td class="p-2">0</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 2" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2"></td>
+                        <td class="p-2">Disciplina</td>
+                        <td class="p-2">Turma</td>
+                        <td class="p-2">Grupo</td>
+                        <td class="p-2">Curso</td>
+                        <td class="p-2">C.H.</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2" colspan="5">Total</td>
+                        <td class="p-2">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 4" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2"></td>
-                      <td class="p-2">Atividades de Pesquisa</td>
-                      <td class="p-2">C.H.</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2" colspan="2">Total</td>
-                      <td class="p-2">0</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 3" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2"></td>
+                        <td class="p-2">Atividades Complementares de Ensino</td>
+                        <td class="p-2">C.H.</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2" colspan="2">Total</td>
+                        <td class="p-2">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 5" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2"></td>
-                      <td class="p-2">Atividades de Extensão</td>
-                      <td class="p-2">C.H.</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2" colspan="2">Total</td>
-                      <td class="p-2">0</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 4" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2"></td>
+                        <td class="p-2">Atividades de Pesquisa</td>
+                        <td class="p-2">C.H.</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2" colspan="2">Total</td>
+                        <td class="p-2">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 6" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2"></td>
-                      <td class="p-2">Atividades Adminsitrativas</td>
-                      <td class="p-2">Portaria</td>
-                      <td class="p-2">C.H.</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2" colspan="3">Total</td>
-                      <td class="p-2">0</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 5" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2"></td>
+                        <td class="p-2">Atividades de Extensão</td>
+                        <td class="p-2">C.H.</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2" colspan="2">Total</td>
+                        <td class="p-2">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 7" x-cloak>
-              <div class="shadow-md border border-gray-400">
-                <table class="w-full">
-                  <tbody class="divide-y divide-gray-400">
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2" colspan="5">Especificações Referentes às Aulas e Atendimentos dos Alunos</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
-                      <td class="p-2">Dia da Semana</td>
-                      <td class="p-2">Atividade</td>
-                      <td class="p-2">Hora de Início</td>
-                      <td class="p-2">Hora de Término</td>
-                      <td class="p-2">Local</td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                    <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                      <td class="p-2"></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 6" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2"></td>
+                        <td class="p-2">Atividades Adminsitrativas</td>
+                        <td class="p-2">Portaria</td>
+                        <td class="p-2">C.H.</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2" colspan="3">Total</td>
+                        <td class="p-2">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="w-full h-full p-8 space-y-2 rounded-r-3xl bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200" x-show="openedTab === 8" x-cloak>
-              <span class="font-semibold italic text-xl">Observações do Professor:</span>
-              <p class="text-justify">Nenhuma observação no momento.</p>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 7" x-cloak>
+                <div class="shadow-md border border-gray-400">
+                  <table class="w-full">
+                    <tbody class="divide-y divide-gray-400">
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2" colspan="5">Especificações Referentes às Aulas e Atendimentos dos Alunos</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-300 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center">
+                        <td class="p-2">Dia da Semana</td>
+                        <td class="p-2">Atividade</td>
+                        <td class="p-2">Hora de Início</td>
+                        <td class="p-2">Hora de Término</td>
+                        <td class="p-2">Local</td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-100 dark:bg-gray-600 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                      <tr class="divide-x divide-gray-400 bg-gray-200 dark:bg-gray-700 transition-bg-color duration-200">
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                        <td class="p-2"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 8" x-cloak>
+                <form action="" method="get">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Observações do Professor:</p>
+                    <textarea name="obs_professor" id="obs_professor" rows="8" class="p-3 border border-gray-400 bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 break-words"></textarea>
+                    <button type="submit" name="botao" value="Gravar Observações" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                      Gravar Observações
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
