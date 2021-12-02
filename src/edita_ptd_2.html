@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Editar PTD - Sistema de Administração de Planos de Trabalho Docente</title>
+  <title>Cadastrar PTD - Sistema de Administração de Planos de Trabalho Docente</title>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/reset.css">
   <!-- <link rel="stylesheet" href="css/tailwind.min.css"> -->
@@ -65,8 +65,8 @@
         </div>
       </header>
       <main class="flex-grow grid place-items-center">
-        <div class="wrapper max-w-4xl" x-data="{'openedTab': 1}">
-          <div class="rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid grid-cols-5">
+        <div class="wrapper max-w-7xl h-110 max-h-110 grid grid-cols-3 gap-0" x-data="{'openedTab': 1}">
+          <div class="col-span-2 w-205 max-w-205 h-full rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid grid-cols-5">
             <div class="p-8 pr-0 flex flex-col justify-between">
               <input type="button" name="tab1" id="1" value="Cabeçalho" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 1" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 1, 'bg-gray-300 dark:bg-gray-600': openedTab !== 1}">
               <input type="button" name="tab2" id="2" value="Disciplinas" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 2" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 2, 'bg-gray-300 dark:bg-gray-600': openedTab !== 2}">
@@ -77,7 +77,7 @@
               <input type="button" name="tab7" id="7" value="Atividades" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 7" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 7, 'bg-gray-300 dark:bg-gray-600': openedTab !== 7}">
               <input type="button" name="tab8" id="8" value="Observações" class="p-2 rounded-l-lg transition-bg-color duration-200 font-light cursor-pointer" @click="openedTab = 8" :class="{'bg-gray-100 dark:bg-gray-700': openedTab === 8, 'bg-gray-300 dark:bg-gray-600': openedTab !== 8}">
             </div>
-            <div class="col-span-4 h-110 max-h-110 p-8 pl-0">
+            <div class="max-h-110 col-span-4 p-8 pl-0">
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 1" x-cloak>
                 <form action="" method="get" autocomplete="off">
                   <div class="grid grid-cols-1 gap-2.5">
@@ -120,9 +120,7 @@
                     <p>Carga horária semanal cadastrada neste PTD: 0h</p>
                     <input type="hidden" name="periodo" value=2021/1>
                     <input type="hidden" name="id" value="13">
-                    <button type="submit" name="botao" value="Gravar dados do cabeçalho deste PTD" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
-                      Salvar no PTD
-                    </button>
+                    <input type="submit" name="botao" value="Gravar dados do cabeçalho deste PTD" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
                   </div>
                 </form>
               </div>
@@ -153,6 +151,153 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="grid grid-cols-1 gap-2.5">
+                  <p class="font-semibold italic text-xl">Cadastrar:</p>
+                  <div class="grid grid-cols-3 gap-3" x-data="{'modalidade': ''}">
+                    <div class="space-y-1">
+                      <span>Modalidade:</span>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center">
+                        <select name="modalidade" id="modalidade" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200" @change="modalidade = $el.value">
+                          <option value="" selected disabled>Modalidade</option>
+                          <option value="Integrado">Integrado</option>
+                          <option value="Subsequente">Subsequente</option>
+                          <option value="Superior">Superior</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="space-y-1 col-span-2">
+                      <span>Curso:</span>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade === ''" x-cloak></div>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade === 'Integrado'" x-cloak>
+                        <select name="curso" id="curso" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                          <option value="" selected disabled>Curso</option>
+                          <option value="Automação Industrial">Automação Industrial</option>
+                          <option value="Eletrotécnica">Eletrotécnica</option>
+                          <option value="Fabricação Mecânica">Fabricação Mecânica</option>
+                          <option value="Geoprocessamento">Geoprocessamento</option>
+                          <option value="Informática para Internet">Informática para Internet</option>
+                          <option value="Refrigeração e Climatização">Refrigeração e Climatização</option>
+                        </select>
+                      </div>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade === 'Subsequente'" x-cloak>
+                        <select name="curso" id="curso" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                          <option value="" selected disabled>Curso</option>
+                          <option value="Automação Industrial">Automação Industrial</option>
+                          <option value="Eletrotécnica">Eletrotécnica</option>
+                          <option value="Fabricação Mecânica">Fabricação Mecânica</option>
+                          <option value="Geoprocessamento">Geoprocessamento</option>
+                          <!-- <option value="Informática para Internet">Informática para Internet</option> -->
+                          <option value="Refrigeração e Climatização">Refrigeração e Climatização</option>
+                        </select>
+                      </div>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade === 'Superior'" x-cloak>
+                        <select name="curso" id="curso" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                          <option value="" selected disabled>Curso</option>
+                          <option value="Enfermagem">Enfermagem</option>
+                          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+                          <option value="Tecnologia em Análise e Desenvolvimento de Sistemas">Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+                          <option value="Tecnologia em Construção de Edifícios">Tecnologia em Construção de Edifícios</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="space-y-1 col-span-2">
+                      <span>Disciplina:</span>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade !== 'Integrado'" x-cloak></div>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center" x-show="modalidade === 'Integrado'" x-cloak>
+                        <select name="disciplinas_integrado" id="disciplinas_integrado" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                          <option value="" selected disabled>Disciplina</option>
+                          <option value="">Artes</option>
+                          <option value="">Biologia I</option>
+                          <option value="">Biologia II</option>
+                          <option value="">Educação Física I</option>
+                          <option value="">Educação Física II</option>
+                          <option value="">Educação Física III</option>
+                          <option value="">Fisolofia I</option>
+                          <option value="">Fisolofia II</option>
+                          <option value="">Fisolofia III</option>
+                          <option value="">Fisolofia IV</option>
+                          <option value="">Física I</option>
+                          <option value="">Física II</option>
+                          <option value="">Física III</option>
+                          <option value="">Física IV</option>
+                          <option value="">Geografia I</option>
+                          <option value="">Geografia II</option>
+                          <option value="">História I</option>
+                          <option value="">História II</option>
+                          <option value="">Língua Estrangeira - Espanhol</option>
+                          <option value="">Língua Estrangeira - Inglês</option>
+                          <option value="">Língua Portuguesa e Literatura Brasileira I</option>
+                          <option value="">Língua Portuguesa e Literatura Brasileira II</option>
+                          <option value="">Língua Portuguesa e Literatura Brasileira III</option>
+                          <option value="">Língua Portuguesa e Literatura Brasileira IV</option>
+                          <option value="">Matemática I</option>
+                          <option value="">Matemática II</option>
+                          <option value="">Matemática III</option>
+                          <option value="">Matemática IV</option>
+                          <option value="">Química I</option>
+                          <option value="">Química II</option>
+                          <option value="">Química III</option>
+                          <option value="">Sociologia I</option>
+                          <option value="">Sociologia II</option>
+                          <option value="">Sociologia III</option>
+                          <option value="">Sociologia IV</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label for="carga_horaria">Carga Horária Semanal:</label>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                        <input type="text" name="carga_horaria" id="carga_horaria" class="w-full" placeholder="HH:MM" pattern="/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/">
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <span>Turmas Integrado:</span>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center">
+                        <select name="turmas" id="turmas" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200" @change="modalidade = $el.value">
+                          <option value="" selected disabled></option>
+                          <option value="">1A</option>
+                          <option value="">1A1</option>
+                          <option value="">1B</option>
+                          <option value="">1B1</option>
+                          <option value="">1C</option>
+                          <option value="">1C1</option>
+                          <option value="">1D</option>
+                          <option value="">1D1</option>
+                          <option value="">1E</option>
+                          <option value="">1E1</option>
+                          <option value="">1F</option>
+                          <option value="">1F1</option>
+                          <option value="">2A</option>
+                          <option value="">2B</option>
+                          <option value="">2C</option>
+                          <option value="">2D</option>
+                          <option value="">2E</option>
+                          <option value="">2F</option>
+                          <option value="">3A</option>
+                          <option value="">3B</option>
+                          <option value="">3C</option>
+                          <option value="">3D</option>
+                          <option value="">3E</option>
+                          <option value="">3F</option>
+                          <option value="">4A</option>
+                          <option value="">4B</option>
+                          <option value="">4C</option>
+                          <option value="">4D</option>
+                          <option value="">4E</option>
+                          <option value="">4F</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="space-y-1 col-span-2">
+                      <label for="grupo">Divisão da Turma (grupos):</label>
+                      <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                        <input type="number" name="grupo" id="grupo" class="w-full">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="id" value="13">
+                  <input type="submit" name="botao" value="Cadastrar Aula" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                </div>
               </div>
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 3" x-cloak>
                 <div class="shadow-md border border-gray-400">
@@ -175,6 +320,27 @@
                     </tbody>
                   </table>
                 </div>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Cadastrar:</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="space-y-1 col-span-2">
+                        <label for="atividade">Atividade Complementar de Ensino:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="atividade" id="atividade" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="carga_horaria">Carga Horária Semanal:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="carga_horaria" id="carga_horaria" class="w-full" placeholder="HH:MM" pattern="/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="id" value="13">
+                    <input type="submit" name="botao" value="Cadastrar atividade complementar de Ensino" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  </div>
+                </form>
               </div>
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 4" x-cloak>
                 <div class="shadow-md border border-gray-400">
@@ -197,6 +363,27 @@
                     </tbody>
                   </table>
                 </div>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Cadastrar:</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="space-y-1 col-span-2">
+                        <label for="atividade">Atividade de Pesquisa:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="atividade" id="atividade" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="carga_horaria">Carga Horária Semanal:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="carga_horaria" id="carga_horaria" class="w-full" placeholder="HH:MM" pattern="/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="id" value="13">
+                    <input type="submit" name="botao" value="Cadastrar atividade de Pesquisa" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  </div>
+                </form>
               </div>
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 5" x-cloak>
                 <div class="shadow-md border border-gray-400">
@@ -219,6 +406,27 @@
                     </tbody>
                   </table>
                 </div>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Cadastrar:</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="space-y-1 col-span-2">
+                        <label for="atividade">Atividade de Extensão:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="atividade" id="atividade" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="carga_horaria">Carga Horária Semanal:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="carga_horaria" id="carga_horaria" class="w-full" placeholder="HH:MM" pattern="/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="id" value="13">
+                    <input type="submit" name="botao" value="Cadastrar atividade de Extensão" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  </div>
+                </form>
               </div>
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 6" x-cloak>
                 <div class="shadow-md border border-gray-400">
@@ -243,6 +451,33 @@
                     </tbody>
                   </table>
                 </div>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Cadastrar:</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="space-y-1 col-span-2">
+                        <label for="atividade">Atividade Adminsitrativa:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="atividade" id="atividade" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1 col-span-2">
+                        <label for="portaria">Portaria:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="portaria" id="portaria" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="carga_horaria">Carga Horária Semanal:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="carga_horaria" id="carga_horaria" class="w-full" placeholder="HH:MM" pattern="/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="id" value="13">
+                    <input type="submit" name="botao" value="Cadastrar atividade Administrativa" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  </div>
+                </form>
               </div>
               <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 7" x-cloak>
                 <div class="shadow-md border border-gray-400">
@@ -275,591 +510,85 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
-              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 8" x-cloak>
-                <form action="" method="get">
+                <form action="" method="get" autocomplete="off">
                   <div class="grid grid-cols-1 gap-2.5">
-                    <p class="font-semibold italic text-xl">Observações do Professor:</p>
-                    <textarea name="obs_professor" id="obs_professor" rows="8" class="p-3 border border-gray-400 bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 break-words"></textarea>
-                    <button type="submit" name="botao" value="Gravar Observações" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
-                      Gravar Observações
-                    </button>
+                    <p class="font-semibold italic text-xl">Cadastrar:</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="space-y-1 col-span-3">
+                        <label for="atividade">Atividade:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="atividade" id="atividade" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1 col-span-3">
+                        <label for="local">Local:</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="text" name="local" id="local" class="w-full">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <span>Dia da Semana:</span>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid place-items-center">
+                          <select name="dia_semana" id="dia_semana" class="w-full bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+                            <option value="Segunda-feira">Segunda-feira</option>
+                            <option value="Terça-feira">Terça-feira</option>
+                            <option value="Quarta-feira">Quarta-feira</option>
+                            <option value="Quinta-feira">Quinta-feira</option>
+                            <option value="Sexta-feira">Sexta-feira</option>
+                            <option value="Sábado">Sábado</option>
+                            <option value="Domingo">Domingo</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="horai">Hora de Início</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="time" name="horai" id="horai" class="w-full flex items-center">
+                        </div>
+                      </div>
+                      <div class="space-y-1">
+                        <label for="horat">Hora de Término</label>
+                        <div class="h-11 px-3 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
+                          <input type="time" name="horat" id="horat" class="w-full flex items-center">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="id" value="13">
+                    <input type="submit" name="botao" value="Cadastrar atividade referente às Aulas e Atendimentos" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
                   </div>
                 </form>
               </div>
+              <div class="w-full h-full p-8 space-y-2 rounded-r-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200 overflow-y-auto" x-show="openedTab === 8" x-cloak>
+                <form action="" method="get" autocomplete="off">
+                  <div class="grid grid-cols-1 gap-2.5">
+                    <p class="font-semibold italic text-xl">Observações do Professor:</p>
+                    <span class="text-sm">O campo de observações do professor é o campo de observações que será publicado no PTD. Somente o professor pode editar este campo.</span>
+                    <textarea name="obs_professor" id="obs_professor" rows="6" class="p-3 border border-gray-400 bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 break-words"></textarea>
+                    <input type="submit" name="botao" value="Gravar Observações" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-full p-8 rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200">
+            <div class="w-full h-full p-8 space-y-2 rounded-lg bg-gray-100 dark:bg-gray-700 transition-bg-color duration-200">
+              <p class="text-justify text-sm">Uma vez finalizado o PTD, clique no botão <em class="italic">"Visualizar PTD"</em> para ver as informações do PTD. Na página de visualização do PTD, caso as informações do PTD estejam corretas, você pode submeter o PTD para a análise do coordenador de curso clicando no botão <em class="italic">"Submeter o PTD ao Coordenador de Curso"</em> ou deixar para enviar posteriormente clicando no botão <em class="italic">"Editar Posteriormente"</em>.</p>
+              <form action="ptd.html" method="get">
+                <button type="submit" name="botao" value="Voltar à página inicial e continuar com a edição do PTD posteriormente" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  Editar Posteriormente
+                </button>
+              </form>
+              <form action="visualiza_ptd.html" method="get">
+                <button type="submit" name="botao" value="Visualizar o PTD" class="w-full mt-1 p-2 rounded-lg shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 font-semibold text-center uppercase cursor-pointer">
+                  Visualizar PTD
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </main>
     </div>
   </div>
-    <!-- <div :class="{'dark': darkMode === true}">
-    <div
-      class="min-h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white transition-colors duration-200 flex flex-col">
-      <header
-        class="h-24 max-h-24 bg-gray-100 dark:bg-gray-800 transition-bg-color duration-200 flex items-center px-4 sticky top-0">
-        <div class="w-full flex-grow flex">
-          <a href="http://ifrs.edu.br/riogrande" target="_blank" class="cursor-pointer">
-            <img src="img/logo.png" class="w-64 dark:invert dark:saturate-0 dark:brightness-0 duration-200">
-          </a>
-        </div>
-        <div class="w-full flex-shrink">
-          <h1 class="font-semibold text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho
-            Docente</h1>
-        </div>
-        <div class="w-full flex-grow flex flex-row-reverse items-center">
-          <label for="toggle"
-            class="w-6 h-12 py-1 rounded-full bg-gray-300 dark:bg-gray-600 transition-bg-color duration-200 relative cursor-pointer shadow-sm flex flex-col items-center justify-between">
-            <div class="w-5 h-5 rounded-full bg-white absolute dark:translate-y-5 duration-200 shadow-md"></div>
-            <i class="fa fa-moon-o text-gray-300"></i>
-            <i class="fa fa-sun-o text-gray-600"></i>
-          </label>
-          <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-          <a href="index.html" class="mx-3">
-            <button
-              class="w-10 h-11 pl-1 rounded-lg bg-gray-300 dark:bg-gray-600 transition-bg-color duration-200 shadow-sm grid place-items-center">
-              <i class="fa fa-sign-out"></i>
-            </button>
-          </a>
-          <div class="flex flex-col items-end justify-center -space-y-1">
-            <span class="font-light">Professor</span>
-            <span class="text-xl max-w-xs truncate">Márcio Torres</span>
-          </div>
-        </div>
-      </header>
-      <main class="flex-grow grid place-items-center space-y-10">
-        <script>
-          document.getElementById("senha").submit;
-        </script>
-        <div id="">
-          <table>
-            <div class="text-center text-2xl italic font-semibold">
-              <h1>Edição do PTD pelo Professor</h1>
-            </div>
-          </table>
-        </div>
-        <div class="bg-center text-lg w-full max-w-3xl">
-          <div>
-            <h1>Professor: Márcio Torres</h1> <br>
-            <h1>Período do PTD:<b> 2021/2</b></h1> <br>
-            <h1>Sala de permanência: 1010</h1> <br>
-            <h1>Área de conhecimento: Informática</h1> <br>
-            <h1>Categoria: Magistério do EBTT</h1> <br>
-            <h1>Regime de trabalho: DE</h1> <br>
-            <h1>Carga horária semanal total cadastrada neste PTD: 0h</h1>
-          </div>
-        </div>
-        <div class="bg-center text-2xl w-full max-w-3xl italic">
-          <h2>Aulas</h2>
-        </div>
-
-        <table>
-          <div class="flex space-x-9">
-            <h2>Disciplina</h2>
-            <h2>Turma</h2>
-            <h2>Grupo</h2>
-            <h2>Curso</h2>
-            <h2>C.H. (h)</h2>
-          </div>
-          <div class="flex space space-x-5">
-            <h2>Total</h2>
-            <h2>0</h2>
-          </div>
-        </table>
-        <div class="bg-center text-2xl w-full max-w-3xl italic"><br>Cadastrar aulas:<br></div>
-        <div>
-          <table>
-            <form method="get" action="">
-              <div>
-
-                <div class="flex bg-center text-lg w-full max-w-3xl space-x-1">
-                  <div class="">Curso/Disciplina: </div>
-                  <select name="id_disciplina">
-
-                  </select>
-                </div>
-              </div>
-              <div>
-
-                <div class="flex bg-center text-lg w-full max-w-3xl  space-x-1  space-y-1">
-                  <h2 class="text-lg">Turma dos cursos da modalidade Integrado:</h2>
-                  <select name="turma">
-                    <option value=""> </option>
-                    <option value="1A">1A</option>
-                    <option value="1A1">1A1</option>
-                    <option value="2A">2A</option>
-                    <option value="3A">3A</option>
-                    <option value="4A">4A</option>
-                    <option value="1B">1B</option>
-                    <option value="1B1">1B1</option>
-                    <option value="2B">2B</option>
-                    <option value="3B">3B</option>
-                    <option value="4B">4B</option>
-                    <option value="1C">1C</option>
-                    <option value="1C1">1C1</option>
-                    <option value="2C">2C</option>
-                    <option value="3C">3C</option>
-                    <option value="4C">4C</option>
-                    <option value="1D">1D</option>
-                    <option value="1D1">1D1</option>
-                    <option value="2D">2D</option>
-                    <option value="3D">3D</option>
-                    <option value="4D">4D</option>
-                    <option value="1E">1E</option>
-                    <option value="1E1">1E1</option>
-                    <option value="2E">2E</option>
-                    <option value="3E">3E</option>
-                    <option value="4E">4E</option>
-                    <option value="1F">1F</option>
-                    <option value="1F1">1F1</option>
-                    <option value="2F">2F</option>
-                    <option value="3F">3F</option>
-                    <option value="4F">4F</option>
-                </div>
-              </div>
-              <div>
-                <h3>
-                  ATENÇÃO: o campo abaixo, "Divisão de turma",
-                  deve
-                  ser usado quando for necessário dividir uma turma em grupos diferentes. Este campo deve ser
-                  preenchido
-                  para as disciplinas que dividem turmas.
-                </h3>
-              </div>
-              <div>
-                <div>Divisão da turma grupo:</div>
-                <select name="grupo">
-                  <option value=""></option>
-                  <option value="1"></option>
-                  <option value="2"></option>
-                  <option value="3"></option>
-                  <option value="4"></option>
-              </div>
-              <div class="flex bg-center text-lg w-full max-w-3xl  space-x-1 space-y-0">
-                <h3>Carga horária semanal: </h3>
-                <input class="" type="text" name="carga_horaria">
-              </div>
-              <div class="text-xs italic">
-                <br>
-                *O campo "Carga horária semanal" suporta apenas números (com separador de
-                vírgula
-                ou ponto), não coloque espaços ou outros caracteres.
-              </div>
-          </table>
-        </div>
-        <div
-          class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-          <input type="hidden" name="id" value="13"><input type="submit" value="Cadastrar aula" name="botao">
-        </div>
-        </form>
-        <table>
-          <div class="flex space-x-9">
-            <h3>Atividades Complementares de Ensino</h3>
-            <h3>C.H. (h)</h3>
-          </div>
-          <div class="flex space space-x-5">
-            <h3>Total</h3>
-            <h3>0</h3>
-          </div>
-        </table>
-        <div class="bg-center text-2xl w-full max-w-3xl italic">Cadastrar:</div>
-        <div class="bg-center text-lg w-full max-w-3xl ">
-          <div class="flex">
-            <h3>Atividade Complementar de Ensino: </h3>
-            <div class='space-x-1'>
-              <input type="text" name="atividade">
-            </div>
-          </div>
-          <div class="flex">
-            <h3>Carga horária semanal: </h3>
-            <div class="space-x-1">
-              <h3><input type="text" name="carga_horaria"></h3>
-            </div>
-          </div>
-        </div>
-        <div
-          class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-          <input type="hidden" name="id" value="13"><input type="submit"
-            value="Cadastrar atividade complementar de Ensino" name="botao">
-        </div>
-        </form>
-        <table>
-          <div class="flex space-x-10">
-            <h3>Atividades de Pesquisa</h3>
-            <h3>C.H. (h)</h3>
-          </div>
-          <div class="flex space-x-10">
-            <h3>Total</h3>
-            <h3>0</h3>
-          </div>
-        </table>
-        <div class="bg-center text-2xl w-full max-w-3xl italic"><br>Cadastrar:<br></div>
-        <div class="bg-center text-lg w-full max-w-3xl">
-          <form method="get" action="">
-            <div class="flex">
-              Atividade de Pesquisa:
-              <div class="space-x-1">
-                <input type="text" name="atividade" size="50">
-              </div>
-            </div>
-            <div class="flex">
-              Carga horária semanal:
-              <div class="space-x-1">
-                <input type="text" name="carga_horaria">
-              </div>
-            </div>
-          </form>
-        </div>
-        <div
-          class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-          <input type="hidden" name="id" value="13"><input type="submit" value="Cadastrar atividade de Pesquisa"
-            name="botao">
-        </div>
-        <table>
-          <div class="flex space-x-10">
-            <h3>Atividades de Extensão</h3>
-            <h3>C.H. (h)</h3>
-          </div>
-          <div class="flex space-x-10">
-            <h3>Total</h3>
-            <h3>0</h3>
-          </div>
-          <div class="bg-center text-2xl w-full max-w-3xl italic">Cadastrar:</div>
-          <div class="bg-center text-lg w-full max-w-3xl">
-            <form method="get" action="">
-
-              <div class="flex">
-                <h3>Atividade de Extensão: </h3>
-                <h3><input type="text" name="atividade"></h3>
-              </div>
-              <div class="flex">
-                <h3>Carga horária semanal: </h3>
-                <h3><input type="text" name="carga_horaria"></h3>
-              </div>
-
-          </div>
-          </form>
-    </div>
-
-    <div
-      class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-      <input type="hidden" name="id" value="13"><input type="submit" value="Cadastrar atividade de Extensão"
-        name="botao">
-    </div>
-    <table>
-      <div class="flex space-x-10">
-        <h3>Atividades Administrativas</h3>
-        <h3>Portaria</h3>
-        <h3>C.H. (h)</h3>
-      </div>
-      <div class="flex space-x-10">
-        <h4>Total</h4>
-        <h4>0</h4>
-      </div>
-      <div class="bg-center text-2xl w-full max-w-3xl italic"><br>Cadastrar:<br></div>
-      <div class="bg-center text-lg w-full max-w-3xl">
-        <form method="get" action="">
-          <div id="">
-
-            <div class="flex">
-              <h4>Atividade Administrativa: </h4>
-              <h4><input type="text" name="atividade" size="50"></h4>
-            </div>
-            <div class="flex">
-              <h4>Portaria: </h4>
-              <h4><input type="text" name="portaria" size="50" maxlength="15"></h4>
-            </div>
-            <div class="flex">
-              <h4>Carga horária semanal: </h4>
-              <div><input type="text" name="carga_horaria"></div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div
-        class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-        <input type="hidden" name="id" value="13"><input type="submit" value="Cadastrar atividade Administrativa"
-          name="botao">
-      </div>
-      <table>
-        <div>
-          <tdh4><b>Especificações Referentes às Aulas e Atendimentos aos Alunos</b></h4>
-        </div>
-        <div class="flex space-x-10">
-          <h4><b>Dia da Semana</b></h4>
-          <h4><b>Atividade</b></h4>
-          <h4><b>Hora de início</b></h4>
-          <h4><b>Hora de término</b></h4>
-          <h4><b>Local</b><br>(prédio,sala,<br>laboratório,<br>link)</h4>
-          <h4></h4>
-        </div>
-      </table>
-      <div class="bg-center text-2xl w-full max-w-3xl italic"><br>Cadastrar:<br></div>
-      <div class="bg-center text-lg w-full max-w-3xl">
-        <form method="get" action="">
-          <table>
-            <div class="flex space-x-1">
-              <h4>Dia da Semana: </h4>
-              <h4><select name="dia_semana">
-                  <option value="Segunda-feira">Segunda-feira</option>
-                  <option value="Terça-feira">Terça-feira</option>
-                  <option value="Quarta-feira">Quarta-feira</option>
-                  <option value="Quinta-feira">Quinta-feira</option>
-                  <option value="Sexta-feira">Sexta-feira</option>
-                  <option value="Sábado">Sábado</option>
-                  <option value="Domingo">Domingo</option>
-                </select></h4>
-            </div>
-            <div class="flex space-x-1">
-              <h4>Atividade: </h4>
-              <h4><input type="text" name="atividade" size="50" maxlength="44"></h4>
-            </div>
-            <div class="flex space-x-1">
-              <h4>Hora de início: </h4>
-              <h4>
-                <select name="horai">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                </select> : <select name="minutoi">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                </select>
-              </h4>
-            </div>
-            <div class="flex space-x-1">
-              <h4>Hora de término: </h4>
-              <h4 class="flex">
-                <select name="horat">
-                  <option value="0">0</option>
-                  <option value="1">1</option>h4
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                </select> : <select name="minutot">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                </select>
-              </h4>
-            </div>
-            <div class="flex space-x-1">
-              <h4>Local: </h4>
-              <h4><input type="text" name="local"></h4>
-              <div>
-          </table>
-          <h5>*Caso as aulas sejam ministradas em laboratório ou on-line, indicar no campo "Local". Caso
-            falte
-            espaço para cadastrar as informações neste campo, usar o campo "Observações" abaixo.</h5><br>
-
-        </form>
-      </div>
-
-      <div
-        class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-        <input type="hidden" name="id" value="13"><input type="submit"
-          value="Cadastrar atividade referente às Aulas e Atendimentos" name="botao">
-      </div>
-      <br>
-      <div class="bg-center text-lg w-full max-w-3xl">
-        <form method="get" action="">
-          <div><b>Observações do professor:</b><br>
-            <h5>O campo de observações do professor é o campo de observações que será publicado no PTD. Somente
-              o
-              professor pode editar este campo.</h5> <br>
-          </div>
-          <textarea name="obs_professor" rows="5" cols="130"></textarea><br>
-        </form>
-      </div>
-      <div
-        class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-        <input type="submit" value="Gravar Observações" name="botao">
-      </div>
-      <br>
-
-      <div
-        class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-        <input type="submit" name="botao_voltar"
-          value="Voltar à página inicial e continuar com a edição do PTD posteriormente"></div>
-
-      <br>
-      <div class="bg-center text-base max-w-3xl">
-        <h5>Uma vez
-          finalizado o PTD, clique no botão "Visualizar o PTD" para ver as informações do PTD. Na página de
-          visualização
-          do PTD, caso as informações do PTD estejam corretas, você pode submeter o PTD para a análise do
-          coordenador
-          de
-          curso clicando no botão "Submeter o PTD ao Coordenador de Curso" ou deixar para enviar posteriormente
-          clicando
-          no botão "Voltar à página inicial e continuar com a edição do PTD posteriormente".</h5>
-        <br><br>
-      </div>
-      <div
-        class="bg-center text-sm max-w-3xl py-1 px-2 rounded-xl shadow-md bg-gray-300 dark:bg-gray-800 bg-transition cursor-pointer">
-        <form method="get" action=""><input type="submit" name="botao_visualiza" value="Visualizar o PTD"></form>
-      </div>
-
-      <br><br>
-  </div>
-  </div>
-  </div>
-  </main> -->
 </body>
 
 </html>
