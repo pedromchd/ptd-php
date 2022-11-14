@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  [x-cloack] {
+    display: none !important;
+  }
+
+  input,
+  textarea,
+  select {
+    all: revert !important;
+  }
+}

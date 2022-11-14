@@ -1,23 +1,38 @@
 {
 	"version": "2.0.0",
 	"tasks": [
-		{
-			"type": "npm",
-			"script": "build",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": [],
-			"label": "npm: build",
-			"detail": "set TAILWIND_MODE=watch&postcss ./src/css/tailwind.css -o ./src/css/style.min.css -w --verbose"
-		},
-		{
-			"type": "npm",
-			"script": "prod",
-			"problemMatcher": [],
-			"label": "npm: prod",
-			"detail": "NODE_ENV=production postcss ./src/css/tailwind.css -o ./src/css/style.min.css"
-		}
-	]
+    {
+      "type": "npm",
+      "script": "install",
+      "group": "clean",
+      "problemMatcher": [],
+      "label": "npm: install",
+      "detail": "install dependencies from package"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "php -S localhost:8080"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --watch"
+    },
+    {
+      "type": "npm",
+      "script": "prod",
+      "problemMatcher": [],
+      "label": "npm: prod",
+      "detail": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --minify"
+    }
+  ]
 }

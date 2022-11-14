@@ -1,28 +1,14 @@
 {
-  "name": "projeto-infinite-monke",
-  "version": "1.0.0",
-  "description": "Classroom link <https://classroom.github.com/a/e6xnTEZy>",
-  "main": "index.js",
-  "scripts": {
-    "build": "set TAILWIND_MODE=watch&postcss ./src/css/tailwind.css -o ./src/css/style.min.css -w --verbose",
-    "prod": "NODE_ENV=production postcss ./src/css/tailwind.css -o ./src/css/style.min.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dbo-2021/projeto-infinite-monke.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dbo-2021/projeto-infinite-monke/issues"
-  },
-  "homepage": "https://github.com/dbo-2021/projeto-infinite-monke#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "cssnano": "^5.0.12",
-    "postcss-cli": "^9.0.2",
-    "tailwindcss": "^2.2.19",
-    "win-node-env": "^0.5.0"
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.2.4"
+  },
+  "scripts": {
+    "dev": "php -S localhost:8080",
+    "build": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --watch",
+    "prod": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --minify"
   }
 }

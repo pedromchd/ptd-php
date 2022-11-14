@@ -1,19 +1,15 @@
 {
   "recommendations": [
-    "christian-kohler.path-intellisense",
-    "EditorConfig.EditorConfig",
-    "ms-vscode.atom-keybindings",
-    "ritwickdey.LiveServer",
-    "wayou.vscode-todo-highlight",
-    "Zignd.html-css-class-completion",
-    "wallabyjs.quokka-vscode",
-    "dbaeumer.vscode-eslint",
+    "adrianwilczynski.alpine-js-intellisense",
+    "alexcvzz.vscode-sqlite",
+    "bmewburn.vscode-intelephense-client",
     "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense",
+    "donjayamanne.git-extension-pack",
+    "donjayamanne.jquerysnippets",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
     "pranaygp.vscode-css-peek",
-    "PKief.material-icon-theme"
-  ],
-  "unwantedRecommendations": [
-    "dbaeumer.jshint",
-    "firefox-devtools.vscode-firefox-debug"
+    "thekalinga.bootstrap4-vscode"
   ]
 }
