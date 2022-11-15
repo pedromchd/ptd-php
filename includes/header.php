@@ -14,16 +14,32 @@
   <script src="./js/jquery.min.js"></script>
 </head>
 
-<body class="antialised flex min-h-screen flex-col text-neutral-900" x-data="{'darkMode': false}" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
-  <div :class="{'dark': darkMode === true}">
-    <header class="transition-colors flex w-full items-center justify-between bg-neutral-100 px-6 py-3 duration-200 dark:bg-neutral-900 md:px-8">
-      <div class="flex items-center justify-end space-x-2">
-        <span class="text-sm text-neutral-900 duration-200 dark:text-neutral-500">Light</span>
-        <label for="toggle" class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-neutral-300 p-1 duration-200 ease-in-out dark:bg-gray-600">
-          <div class="toggle-dot h-4 w-4 transform rounded-full bg-white shadow-md duration-200 ease-in-out dark:translate-x-3"></div>
-        </label>
-        <span class="text-sm text-neutral-500 duration-200 dark:text-neutral-100">Dark</span>
-        <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode" />
+<body class="antialised" x-data="{'darkMode': false}" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+  <div class="flex h-screen flex-col" :class="{'dark': darkMode === true}">
+    <header class="grid grid-cols-3 items-center gap-3 bg-neutral-100 p-3 dark:bg-neutral-900 dark:text-neutral-50">
+      <img src="./img/Logo-Campus-Rio-Grande_horizontal.png" alt="" class="w-64 dark:brightness-0 dark:invert dark:saturate-0" />
+      <h1 class="text-center text-2xl font-bold uppercase">Sistema de Administração de Planos de Trabalho Docente</h1>
+      <div class="relative justify-self-end" x-data="{'open': false}">
+        <span class="mr-2 text-xl">Não logado</span>
+        <button class="aspect-1 w-10 rounded-md bg-neutral-200 shadow-md hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700" :value="open" @click="open = !open">
+          <i class="fa fa-sliders" aria-hidden="true"></i>
+        </button>
+        <div class="absolute right-0 mt-2 w-40 rounded-md bg-neutral-200 p-1 shadow-md dark:bg-neutral-800" x-cloak x-show="open" @click.outside="open = false">
+          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" :value="darkMode" @click="darkMode = !darkMode">
+            <span>Modo: <span x-text="(darkMode) ? 'Escuro' : 'Claro'"></span></span>
+            <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}" aria-hidden="true"></i></span>
+          </button>
+          <?php if (isset($_POST["usuario"])) : ?>
+          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+            <span>Alterar Senha</span>
+            <span><i class="fa fa-key" aria-hidden="true"></i></span>
+          </button>
+          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" @click="window.open('/index.php', '_self')">
+            <span>Sair do Sistema</span>
+            <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+          </button>
+          <?php endif; ?>
+        </div>
       </div>
     </header>
-    <main>
+    <main class="grid flex-grow place-items-center bg-neutral-50 p-3 dark:bg-neutral-800 dark:text-neutral-50">

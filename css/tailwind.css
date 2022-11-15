@@ -7,9 +7,13 @@
     display: none !important;
   }
 
-  input,
+  /* input,
   textarea,
   select {
     all: revert !important;
+  } */
+
+  .prose * {
+    @apply text-black dark:text-neutral-50;
   }
 }
