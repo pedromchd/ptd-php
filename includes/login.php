@@ -2,7 +2,7 @@
   <h2 class="text-center">Seja bem-vindo!</h2>
   <h3 class="text-center">Faça login para continuar</h3>
   <article class="w-72 rounded-lg bg-neutral-200 p-3 dark:bg-neutral-900">
-    <form method="get" action="/ptd.php" class="mb-0">
+    <form method="post" action="/ptd.php" class="mb-0">
       <div class="space-y-3">
         <label for="" class="block">
           <span class="font-semibold">Usuário</span>

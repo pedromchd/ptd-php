@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_GET["username"]) || $_GET["username"] <= 0) {
+if (!isset($_POST["username"]) || $_POST["username"] <= 0) {
   header("Location: /index.php?error=2");
   exit;
 }

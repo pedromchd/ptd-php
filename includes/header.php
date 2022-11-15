@@ -22,10 +22,10 @@
       <div class="relative justify-self-end" x-data="{'open': false}">
         <div class="flex items-center">
           <?php
-          if (isset($_GET["username"])) {
+          if (isset($_POST["username"])) {
             try {
               $query = $db->prepare("SELECT fullname FROM usuario WHERE username = :username");
-              $query->bindValue(":username", $_GET["username"]);
+              $query->bindValue(":username", $_POST["username"]);
               $result = $query->execute();
               $usuario = $result->fetchArray(SQLITE3_ASSOC);
               if ($usuario === false) {
@@ -49,7 +49,7 @@
             <span>Modo: <span x-text="(darkMode) ? 'Escuro' : 'Claro'"></span></span>
             <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}" aria-hidden="true"></i></span>
           </button>
-          <?php if (isset($_GET["username"])) : ?>
+          <?php if (isset($_POST["username"])) : ?>
           <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
             <span>Alterar Senha</span>
             <span><i class="fa fa-key" aria-hidden="true"></i></span>
