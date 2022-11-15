@@ -20,16 +20,36 @@
       <img src="./img/Logo-Campus-Rio-Grande_horizontal.png" alt="" class="w-64 dark:brightness-0 dark:invert dark:saturate-0" />
       <h1 class="text-center text-2xl font-bold uppercase">Sistema de Administração de Planos de Trabalho Docente</h1>
       <div class="relative justify-self-end" x-data="{'open': false}">
-        <span class="mr-2 text-xl">Não logado</span>
-        <button class="aspect-1 w-10 rounded-md bg-neutral-200 shadow-md hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700" :value="open" @click="open = !open">
-          <i class="fa fa-sliders" aria-hidden="true"></i>
-        </button>
+        <div class="flex items-center">
+          <?php
+          if (isset($_GET["username"])) {
+            try {
+              $query = $db->prepare("SELECT fullname FROM usuario WHERE username = :username");
+              $query->bindValue(":username", $_GET["username"]);
+              $result = $query->execute();
+              $usuario = $result->fetchArray(SQLITE3_ASSOC);
+              if ($usuario === false) {
+                throw new Exception("error=1");
+              }
+              echo '<span class="mr-2 block w-80 truncate text-right text-xl">' . $usuario["fullname"] . '</span>';
+            } catch (Exception $e) {
+              header("Location: /index.php?" . $e->getMessage());
+              exit;
+            }
+          } else {
+            echo '<span class="mr-2 block w-80 truncate text-right text-xl">Não logado</span>';
+          }
+          ?>
+          <button class="block aspect-1 w-10 shrink-0 rounded-md bg-neutral-200 shadow-md hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700" :value="open" @click="open = !open">
+            <i class="fa fa-sliders" aria-hidden="true"></i>
+          </button>
+        </div>
         <div class="absolute right-0 mt-2 w-40 rounded-md bg-neutral-200 p-1 shadow-md dark:bg-neutral-800" x-cloak x-show="open" @click.outside="open = false">
           <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" :value="darkMode" @click="darkMode = !darkMode">
             <span>Modo: <span x-text="(darkMode) ? 'Escuro' : 'Claro'"></span></span>
             <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}" aria-hidden="true"></i></span>
           </button>
-          <?php if (isset($_POST["usuario"])) : ?>
+          <?php if (isset($_GET["username"])) : ?>
           <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
             <span>Alterar Senha</span>
             <span><i class="fa fa-key" aria-hidden="true"></i></span>
