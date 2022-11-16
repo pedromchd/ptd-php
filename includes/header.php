@@ -1,3 +1,22 @@
+<?php
+function getFullname($db)
+{
+  if (isset($_POST["username"])) {
+    $query = $db->prepare("SELECT fullname FROM usuario WHERE username = :username");
+    $query->bindValue(":username", $_POST["username"]);
+    $result = $query->execute();
+    $usuario = $result->fetchArray(SQLITE3_ASSOC);
+    if ($usuario === false) {
+      header("Location: /index.php");
+      exit;
+    }
+    return $usuario["fullname"];
+  } else {
+    return "Não logado";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -21,25 +40,7 @@
       <h1 class="text-center text-2xl font-bold uppercase">Sistema de Administração de Planos de Trabalho Docente</h1>
       <div class="relative justify-self-end" x-data="{'open': false}">
         <div class="flex items-center">
-          <?php
-          if (isset($_POST["username"])) {
-            try {
-              $query = $db->prepare("SELECT fullname FROM usuario WHERE username = :username");
-              $query->bindValue(":username", $_POST["username"]);
-              $result = $query->execute();
-              $usuario = $result->fetchArray(SQLITE3_ASSOC);
-              if ($usuario === false) {
-                throw new Exception("error=1");
-              }
-              echo '<span class="mr-2 block w-80 truncate text-right text-xl">' . $usuario["fullname"] . '</span>';
-            } catch (Exception $e) {
-              header("Location: /index.php?" . $e->getMessage());
-              exit;
-            }
-          } else {
-            echo '<span class="mr-2 block w-80 truncate text-right text-xl">Não logado</span>';
-          }
-          ?>
+          <span class="mr-2 block w-80 truncate text-right text-xl"><?= getFullname($db) ?></span>
           <button class="block aspect-1 w-10 shrink-0 rounded-md bg-neutral-200 shadow-md hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700" :value="open" @click="open = !open">
             <i class="fa fa-sliders" aria-hidden="true"></i>
           </button>
