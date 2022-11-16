@@ -1,19 +1,16 @@
 <?php
-function getFullname($db)
-{
-  if (isset($_POST["username"])) {
-    $query = $db->prepare("SELECT fullname FROM usuario WHERE username = :username");
-    $query->bindValue(":username", $_POST["username"]);
-    $result = $query->execute();
-    $usuario = $result->fetchArray(SQLITE3_ASSOC);
-    if ($usuario === false) {
-      header("Location: /index.php");
-      exit;
-    }
-    return $usuario["fullname"];
-  } else {
-    return "Não logado";
+$fullname = "Não logado";
+if (isset($_POST["username"])) {
+  $query = $db->prepare("SELECT fullname, password FROM usuario WHERE username = :username AND password = :password");
+  $query->bindValue(":username", $_POST["username"]);
+  $query->bindValue(":password", $_POST["password"]);
+  $result = $query->execute();
+  $usuario = $result->fetchArray(SQLITE3_ASSOC);
+  if ($usuario === false) {
+    header("Location: /index.php");
+    exit;
   }
+  $fullname = $usuario["fullname"];
 }
 ?>
 
@@ -40,7 +37,7 @@ function getFullname($db)
       <h1 class="text-center text-2xl font-bold uppercase">Sistema de Administração de Planos de Trabalho Docente</h1>
       <div class="relative justify-self-end" x-data="{'open': false}">
         <div class="flex items-center">
-          <span class="mr-2 block w-80 truncate text-right text-xl"><?= getFullname($db) ?></span>
+          <span class="mr-2 block w-80 truncate text-right text-xl"><?= $fullname ?></span>
           <button class="block aspect-1 w-10 shrink-0 rounded-md bg-neutral-200 shadow-md hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700" :value="open" @click="open = !open">
             <i class="fa fa-sliders" aria-hidden="true"></i>
           </button>

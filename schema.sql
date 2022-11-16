@@ -8,8 +8,9 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE usuario
 (
   "id" INTEGER NOT NULL,
-  "username" VARCHAR(255) NOT NULL,
+  "username" VARCHAR(255) NOT NULL UNIQUE,
   "fullname" VARCHAR(255) NOT NULL,
+  "password" VARCHAR(255) NOT NULL,
   PRIMARY KEY ("id")
 );
 
@@ -21,10 +22,10 @@ CREATE TABLE ptd
   PRIMARY KEY ("id")
 );
 
-INSERT INTO usuario ("username", "fullname") VALUES
-("pedro", "Pedro Machado"),
-("marcos", "Marcos Copello"),
-("antonella", "Antonella Cuello");
+INSERT INTO usuario ("username", "fullname", "password") VALUES
+("pedro", "Pedro Machado", "pedro"),
+("marcos", "Marcos Copello", "marcos"),
+("antonella", "Antonella Cuello", "marcos");
 
 INSERT INTO ptd ("periodo", "status") VALUES
 ("2022/1", "0"),
