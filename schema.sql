@@ -1,6 +1,9 @@
-PRAGMA foreign_keys = ON;
+PRAGMA foreign_keys = OFF;
 
 DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS ptd;
+
+PRAGMA foreign_keys = ON;
 
 CREATE TABLE usuario
 (
@@ -10,8 +13,19 @@ CREATE TABLE usuario
   PRIMARY KEY ("id")
 );
 
-INSERT INTO usuario ("username", "fullname") VALUES
+CREATE TABLE ptd
 (
-  "pedromchd",
-  "Pedro Machado"
+  "id" INTEGER NOT NULL,
+  "periodo" NUMERIC NOT NULL,
+  "status" INTEGER NOT NULL CHECK("status" BETWEEN 0 AND 5),
+  PRIMARY KEY ("id")
 );
+
+INSERT INTO usuario ("username", "fullname") VALUES
+("pedro", "Pedro Machado"),
+("marcos", "Marcos Copello"),
+("antonella", "Antonella Cuello");
+
+INSERT INTO ptd ("periodo", "status") VALUES
+("2022/1", "0"),
+("2022/2", "1");

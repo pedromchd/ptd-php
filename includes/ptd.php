@@ -1,11 +1,28 @@
-<!-- <section class="prose">
-
-</section>
 <section class="prose">
+  <article class="prose rounded-lg bg-neutral-100 p-3 dark:bg-neutral-900">
+    <table class="ptd-table">
+      <tr>
+        <td>Período</td>
+        <td>Professor</td>
+        <td>Coordenação de Curso</td>
+        <td>Direção de Extensão</td>
+        <td>Direção de Pesquisa</td>
+        <td>Direção de Ensino</td>
+        <td>Direção Geral</td>
+      </tr>
+      <?php
+      $results = $db->query("SELECT periodo, status FROM ptd");
+      while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+        foreach ($row as $value) {
+          echo $value;
+        }
+      }
+      ?>
+    </table>
+  </article>
+</section>
 
-</section> -->
-
-<div class="wrapper grid max-w-7xl grid-cols-3 gap-4">
+<!-- <div class="wrapper grid max-w-7xl grid-cols-3 gap-4">
   <div class="transition-bg-color col-span-2 space-y-3 rounded-3xl bg-gray-100 p-8 shadow-md duration-200 dark:bg-gray-800">
     <div class="flex items-center justify-between">
       <span class="text-lg font-semibold">Coordenador(a) de Curso: Franciane de Lima Coimbra</span>
@@ -70,4 +87,4 @@
     <span class="text-xl font-semibold italic">"Onde está o PTD?"</span>
     <p class="text-justify">Na tabela ao lado, o botão <em class="italic">"EDITAR"</em> indica que o professor pode editar o seu PTD e encontra-se na coluna <em class="italic">"Professor"</em> até que o PTD seja submetido ao coordenador. Uma vez submetido o PTD ao coordenador, o botão <em class="italic">"VER"</em> estará disponível para acesso em modo de visualização na coluna correspondente onde o PTD se encontrar. Caso o coordenador ou as direções coloquem observações, elas podem ser visualizadas logo abaixo da tabela. Você somente terá submetido o PTD ao Coordenador de Curso se aparecer o botão <em class="italic">"VER"</em> na respectiva coluna desta mesma tabela. Se estiver aparecendo o botão <em class="italic">"EDITAR"</em> é porque você ainda não submeteu o seu PTD ao Coordenador de Curso.</p>
   </div>
-</div>
+</div> -->

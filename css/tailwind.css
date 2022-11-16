@@ -13,7 +13,22 @@
     all: revert !important;
   } */
 
+  .prose,
   .prose * {
     @apply text-black dark:text-neutral-50;
+  }
+
+  /* .prose p {
+    @apply text-justify;
+  } */
+
+  .grid,
+  .prose {
+    min-width: unset !important;
+    max-width: unset !important;
+  }
+
+  .ptd-table td {
+    @apply w-44 border border-neutral-500 p-2 text-center;
   }
 }
