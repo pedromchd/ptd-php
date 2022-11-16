@@ -1,70 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Cadastrar PTD - Sistema de Administração de Planos de Trabalho Docente</title>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/reset.css">
-  <!-- <link rel="stylesheet" href="css/tailwind.min.css"> -->
-  <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <script defer src="js/alpinejs.min.js"></script>
-</head>
-
-<body class="antialiased"
-  x-data="{'darkMode': false}"
-  x-init="
-    darkMode = JSON.parse(localStorage.getItem('darkMode'));
-    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
-  <div :class="{'dark': darkMode === true}">
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white transition-colors duration-200 flex flex-col">
-      <header class="h-24 max-h-24 px-4 sticky top-0 bg-gray-100 dark:bg-gray-800 transition-bg-color duration-200 flex items-center">
-        <div class="w-full flex-grow flex">
-          <a href="https://ifrs.edu.br/riogrande/" target="_blank" class="cursor-pointer select-none">
-            <img src="img/logo.png" class="w-64 dark:invert dark:saturate-0 dark:brightness-0 duration-200">
-          </a>
-        </div>
-        <div class="w-full flex-shrink">
-          <h1 class="font-semibold text-xl text-center uppercase">Sistema de Administração<br>de Planos de Trabalho Docente</h1>
-        </div>
-        <div class="w-full flex-grow flex flex-row-reverse items-center">
-          <div class="space-y-1.5 relative" x-data="{'open': false}">
-            <button class="w-11 h-11 rounded-lg shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-bg-color duration-200 grid place-items-center cursor-pointer" :value="open" @click="open = !open">
-              <i class="fa fa-sliders"></i>
-            </button>
-            <div class="w-48 absolute right-0 rounded-lg shadow-xl divide-y divide-transparent bg-gray-300 dark:bg-gray-600 transition-bg-color duration-200 flex flex-col" x-cloak x-show="open" x-transition @click.outside="open = false">
-              <div>
-                <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode">
-                <label for="toggle" class="rounded-t-lg w-full p-3.5 bg-gray-200 dark:bg-gray-700 hover:bg-transparent dark:hover:bg-transparent transition-bg-color duration-200 flex justify-between cursor-pointer select-none">
-                  <span>Tema: <span x-text="(darkMode) ? 'Escuro' : 'Claro'"></span></span>
-                  <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}"></i></span>
-                </label>
-              </div>
-              <form action="alterar_senha_usuario.html" method="get">
-                <input type="hidden" name="id" value="13">
-                <button type="submit" name="botao_editar_perfil" value="Alterar Senha" class="rounded-none w-full p-3.5 bg-gray-200 dark:bg-gray-700 hover:bg-transparent dark:hover:bg-transparent transition-bg-color duration-200 flex justify-between cursor-pointer select-none">
-                  <span>Alterar Senha</span>
-                  <span><i class="fa fa-key"></i></span>
-                </button>
-              </form>
-              <form action="index.html" method="get">
-                <button type="submit" name="sair" value="Sair" class="rounded-b-lg w-full p-3.5 bg-gray-200 dark:bg-gray-700 hover:bg-transparent dark:hover:bg-transparent transition-bg-color duration-200 flex justify-between cursor-pointer select-none">
-                  <span>Sair do Sistema</span>
-                  <span><i class="fa fa-sign-out"></i></span>
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="mr-3 -space-y-1 flex flex-col items-end justify-center">
-            <span class="font-light">Professor</span>
-            <span class="max-w-xs text-xl truncate">Márcio Torres</span>
-          </div>
-        </div>
-      </header>
-      <main class="flex-grow grid place-items-center">
         <div class="wrapper max-w-7xl h-110 max-h-110 grid grid-cols-3 gap-0" x-data="{'openedTab': 1}">
           <div class="col-span-2 w-205 max-w-205 h-full rounded-3xl shadow-md bg-gray-200 dark:bg-gray-800 transition-bg-color duration-200 grid grid-cols-5">
             <div class="p-8 pr-0 flex flex-col justify-between">
@@ -586,9 +520,3 @@
             </div>
           </div>
         </div>
-      </main>
-    </div>
-  </div>
-</body>
-
-</html>
