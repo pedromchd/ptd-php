@@ -1,7 +1,7 @@
 <?php
 $fullname = "Não logado";
 if (isset($_POST["username"])) {
-  $query = $db->prepare("SELECT fullname, password FROM usuario WHERE username = :username AND password = :password");
+  $query = $db->prepare("SELECT fullname, password FROM usuarios WHERE username = :username AND password = :password");
   $query->bindValue(":username", $_POST["username"]);
   $query->bindValue(":password", $_POST["password"]);
   $result = $query->execute();
