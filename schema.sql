@@ -30,15 +30,6 @@ CREATE TABLE usuarios
 --   PRIMARY KEY ("id")
 -- );
 
-INSERT INTO usuarios ("username", "password", "fullname") VALUES
-("pedro", "machado", "Pedro Machado"),
-("marcos", "freitas", "Marcos Copello"),
-("antonella", "cuello", "Antonella Cuello");
-
--- INSERT INTO ptd ("periodo", "status") VALUES
--- ("2022/1", "0"),
--- ("2022/2", "1");
-
 CREATE TABLE cabecalho
 (
   "id" INTEGER NOT NULL,
@@ -52,53 +43,73 @@ CREATE TABLE cabecalho
 CREATE TABLE disciplinas
 (
   "id" INTEGER NOT NULL,
-  "serie" INTEGER NOT NULL,
-  "carga_horaria" TIME NOT NULL,
-  "Divisão da Turma (grupos)" VARCHAR(255) NOT NULL,
-  PRIMARY KEY ("id");
-)
+  "modalidade" VARCHAR(255) NOT NULL,
+  "curso" VARCHAR(255) NOT NULL,
+  "materia" VARCHAR(255) NOT NULL,
+  "ano_letivo" INTEGER NOT NULL,
+  "carga_horaria" VARCHAR(8) NOT NULL,
+  PRIMARY KEY ("id"),
+  FOREIGN KEY ("modalidade") REFERENCES modalidades ("id") ON DELETE CASCADE,
+  FOREIGN KEY ("curso") REFERENCES cursos ("id") ON DELETE CASCADE,
+  FOREIGN KEY ("materia") REFERENCES materias ("id") ON DELETE CASCADE
+);
 
 CREATE TABLE complementares
 (
-  "atividade complementar de ensino" VARCHAR(255) NOT NULL,
-  "carga horaria semanal" VARCHAR(255) NOT NULL,
-  PRIMARY KEY ("atividade complementar de ensino")
+  "id" INTEGER NOT NULL,
+  "atividade" VARCHAR(255) NOT NULL,
+  "carga_horaria" VARCHAR(8) NOT NULL,
+  PRIMARY KEY ("id")
 );
 
 CREATE TABLE pesquisa
 (
-  "atividade de pesquisa" VARCHAR(255) NOT NULL,
-  "carga horaria semanal" VARCHAR(255) NOT NULL,
-  PRIMARY KEY ("atividade de pesquisa")
+  "id" INTEGER NOT NULL,
+  "atividade" VARCHAR(255) NOT NULL,
+  "carga_horaria" VARCHAR(8) NOT NULL,
+  PRIMARY KEY ("id")
 );
 
 CREATE TABLE extensao
 (
-  "Atividade de Extensão" VARCHAR(255) NOT NULL,
-  "Carga Horária Semanal" TIME NOT NULL,
-  PRIMARY KEY ("Atividade de Extensão")
+  "id" INTEGER NOT NULL,
+  "atividade" VARCHAR(255) NOT NULL,
+  "carga_horaria" VARCHAR(8) NOT NULL,
+  PRIMARY KEY ("id")
 );
 
 CREATE TABLE administracao
 (
-  "atividade adminstrativa" VARCHAR(255) NOT NULL,
-  "portaria" INTEGER NOT NULL,
-  "carga horaria" VARCHAR(255) NOT NULL,
-  PRIMARY KEY ("atividade adminstrativa")
+  "id" INTEGER NOT NULL,
+  "atividade" VARCHAR(255) NOT NULL,
+  "portaria" NUMERIC NOT NULL,
+  "carga_horaria" VARCHAR(8) NOT NULL,
+  PRIMARY KEY ("id")
 );
 
 CREATE TABLE atividades
 (
+  "id" INTEGER NOT NULL,
   "atividade" VARCHAR(255) NOT NULL,
   "local" VARCHAR(255) NOT NULL,
-  "dia da semana" VARCHAR(255) NOT NULL,
-  "hora de inicio" VARCHAR(255) NOT NULL,
-  "hora de termino " VARCHAR(255) NOT NULL,
-  PRIMARY KEY ('atividade')
+  "dia_semana" VARCHAR(255) NOT NULL,
+  "hora_inicio" TIME NOT NULL,
+  "hora_termino " TIME NOT NULL,
+  PRIMARY KEY ("id")
 );
 
 CREATE TABLE observacoes
 (
-  "campo de observação" VARCHAR(255) NOT NULL,
-  PRIMARY KEY("campo de observacao")
+  "id" INTEGER NOT NULL,
+  "observacao" VARCHAR(255) NOT NULL,
+  PRIMARY KEY ("id")
 );
+
+INSERT INTO usuarios ("username", "password", "fullname") VALUES
+("pedro", "machado", "Pedro Machado"),
+("marcos", "freitas", "Marcos Copello"),
+("antonella", "cuello", "Antonella Cuello");
+
+-- INSERT INTO ptd ("periodo", "status") VALUES
+-- ("2022/1", "0"),
+-- ("2022/2", "1");

@@ -28,7 +28,7 @@ CREATE TABLE materias
   "materia" VARCHAR(255) NOT NULL,
   "modalidade" VARCHAR(255) NOT NULL,
   "curso" VARCHAR(255),
-  PRIMARY KEY ("id")
+  PRIMARY KEY ("id"),
   FOREIGN KEY ("modalidade") REFERENCES modalidades ("id") ON DELETE CASCADE,
   FOREIGN KEY ("curso") REFERENCES cursos ("id") ON DELETE CASCADE
 );
