@@ -7,7 +7,7 @@ if (isset($_POST["username"])) {
   $result = $query->execute();
   $usuario = $result->fetchArray(SQLITE3_ASSOC);
   if ($usuario === false) {
-    header("Location: /index.php");
+    header("Location: index.php");
     exit;
   }
   $fullname = $usuario["fullname"];

@@ -1,5 +1,8 @@
 {
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.db": "sqlite-viewer.option"
   }
 }
