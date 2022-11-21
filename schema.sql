@@ -9,8 +9,8 @@ CREATE TABLE usuarios
 (
   "id" INTEGER NOT NULL,
   "username" VARCHAR(255) NOT NULL UNIQUE,
-  "fullname" VARCHAR(255) NOT NULL,
   "password" VARCHAR(255) NOT NULL,
+  "fullname" VARCHAR(255) NOT NULL,
   PRIMARY KEY ("id")
 );
 
@@ -22,10 +22,10 @@ CREATE TABLE usuarios
 --   PRIMARY KEY ("id")
 -- );
 
-INSERT INTO usuarios ("username", "fullname", "password") VALUES
-("pedro", "Pedro Machado", "pedro"),
-("marcos", "Marcos Copello", "marcos"),
-("antonella", "Antonella Cuello", "marcos");
+INSERT INTO usuarios ("username", "password", "fullname") VALUES
+("pedro", "machado", "Pedro Machado"),
+("marcos", "freitas", "Marcos Copello"),
+("antonella", "cuello", "Antonella Cuello");
 
 -- INSERT INTO ptd ("periodo", "status") VALUES
 -- ("2022/1", "0"),

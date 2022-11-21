@@ -52,7 +52,7 @@ if (isset($_POST["username"])) {
             <span>Alterar Senha</span>
             <span><i class="fa fa-key" aria-hidden="true"></i></span>
           </button>
-          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" @click="window.open('/index.php', '_self')">
+          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" @click="window.open('index.php', '_self')">
             <span>Sair do Sistema</span>
             <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
           </button>

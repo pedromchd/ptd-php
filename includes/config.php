@@ -1,7 +1,7 @@
 <?php
 
-if (!isset($_POST["username"]) || $_POST["username"] <= 0) {
-  header("Location: /index.php");
+if (!isset($_POST["username"])) {
+  header("Location: index.php");
   exit;
 }
 
