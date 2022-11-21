@@ -48,27 +48,27 @@
     </ul>
   </nav>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Cabeçalho')">
-    <?php include __DIR__ . "./cabecalho.php" ?>
+    <?php include __DIR__ . "/cabecalho.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Disciplinas')">
-    <?php include __DIR__ . "./disciplinas.php" ?>
+    <?php include __DIR__ . "/disciplinas.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Complementares')">
-    <?php include __DIR__ . "./complementares.php" ?>
+    <?php include __DIR__ . "/complementares.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Pesquisa')">
-    <?php include __DIR__ . "./pesquisa.php" ?>
+    <?php include __DIR__ . "/pesquisa.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Extensão')">
-    <?php include __DIR__ . "./extensao.php" ?>
+    <?php include __DIR__ . "/extensao.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Adminsitração')">
-    <?php include __DIR__ . "./adminsitracao.php" ?>
+    <?php include __DIR__ . "/adminsitracao.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Atividades')">
-    <?php include __DIR__ . "./atividades.php" ?>
+    <?php include __DIR__ . "/atividades.php" ?>
 </article>
   <article class="flex-grow rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('Observações')">
-    <?php include __DIR__ . "./observacoes.php" ?>
+    <?php include __DIR__ . "/observacoes.php" ?>
 </article>
 </section>
