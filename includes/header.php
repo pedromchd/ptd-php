@@ -48,10 +48,10 @@ if (isset($_POST["username"])) {
             <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}" aria-hidden="true"></i></span>
           </button>
           <?php if (isset($_POST["username"])) : ?>
-          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+          <!-- <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
             <span>Alterar Senha</span>
             <span><i class="fa fa-key" aria-hidden="true"></i></span>
-          </button>
+          </button> -->
           <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" @click="window.open('index.php', '_self')">
             <span>Sair do Sistema</span>
             <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
