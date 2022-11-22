@@ -44,8 +44,8 @@ if (isset($_POST["username"])) {
         </div>
         <div class="absolute right-0 mt-2 w-40 rounded-md bg-neutral-200 p-1 shadow-md dark:bg-neutral-800" x-cloak x-show="open" @click.outside="open = false">
           <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" :value="darkMode" @click="darkMode = !darkMode">
-            <span>Modo: <span x-text="(darkMode) ? 'Escuro' : 'Claro'"></span></span>
-            <span><i class="fa" :class="{'fa-sun-o': !darkMode, 'fa-moon-o': darkMode}" aria-hidden="true"></i></span>
+            <span>Modo <span x-text="(darkMode) ? 'Claro' : 'Escuro'"></span></span>
+            <span><i class="fa" :class="darkMode ? 'fa-sun-o' : 'fa-moon-o'" aria-hidden="true"></i></span>
           </button>
           <?php if (isset($_POST["username"])) : ?>
           <!-- <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
