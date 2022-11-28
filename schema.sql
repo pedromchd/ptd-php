@@ -46,7 +46,7 @@ CREATE TABLE disciplinas
   "modalidade" VARCHAR(255) NOT NULL,
   "curso" VARCHAR(255) NOT NULL,
   "materia" VARCHAR(255) NOT NULL,
-  "ano_letivo" INTEGER NOT NULL,
+  "serie" INTEGER NOT NULL,
   "carga_horaria" VARCHAR(8) NOT NULL,
   PRIMARY KEY ("id"),
   FOREIGN KEY ("modalidade") REFERENCES modalidades ("id") ON DELETE CASCADE,
@@ -57,7 +57,7 @@ CREATE TABLE disciplinas
 CREATE TABLE complementares
 (
   "id" INTEGER NOT NULL,
-  "atividade" VARCHAR(255) NOT NULL,
+  "atividade_comp" VARCHAR(255) NOT NULL,
   "carga_horaria" VARCHAR(8) NOT NULL,
   PRIMARY KEY ("id")
 );
@@ -65,7 +65,7 @@ CREATE TABLE complementares
 CREATE TABLE pesquisa
 (
   "id" INTEGER NOT NULL,
-  "atividade" VARCHAR(255) NOT NULL,
+  "atividade_pesq" VARCHAR(255) NOT NULL,
   "carga_horaria" VARCHAR(8) NOT NULL,
   PRIMARY KEY ("id")
 );
@@ -73,7 +73,7 @@ CREATE TABLE pesquisa
 CREATE TABLE extensao
 (
   "id" INTEGER NOT NULL,
-  "atividade" VARCHAR(255) NOT NULL,
+  "atividade_ext" VARCHAR(255) NOT NULL,
   "carga_horaria" VARCHAR(8) NOT NULL,
   PRIMARY KEY ("id")
 );
@@ -81,7 +81,7 @@ CREATE TABLE extensao
 CREATE TABLE administracao
 (
   "id" INTEGER NOT NULL,
-  "atividade" VARCHAR(255) NOT NULL,
+  "atividade_adm" VARCHAR(255) NOT NULL,
   "portaria" NUMERIC NOT NULL,
   "carga_horaria" VARCHAR(8) NOT NULL,
   PRIMARY KEY ("id")

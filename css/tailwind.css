@@ -28,7 +28,15 @@
     max-width: unset !important;
   }
 
-  .ptd-table td {
+  /* .ptd-table td {
     @apply w-44 border border-neutral-500 p-2 text-center;
+  } */
+
+  .input {
+    @apply mt-1 block w-full rounded-md border-transparent bg-neutral-100 focus:border-neutral-500 focus:bg-neutral-50 focus:ring-0 dark:bg-neutral-800 dark:focus:bg-neutral-700;
+  }
+
+  .submit {
+    @apply block w-full rounded-md border-transparent bg-neutral-100 font-bold focus:border-neutral-500 focus:bg-neutral-50 focus:ring-0 dark:bg-neutral-800 dark:focus:bg-neutral-700;
   }
 }

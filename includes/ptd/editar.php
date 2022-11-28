@@ -1,11 +1,8 @@
-<section
-  class="flex h-full w-full flex-col"
-  x-data="{
+<section class="flex h-full w-full flex-col" x-data="{
     tab: 'cabecalho',
     toggle(id) { this.tab = id },
     isOpen(id) { return this.tab === id }
-  }"
->
+  }">
   <nav class="mb-4">
     <ul class="flex space-x-2 text-center font-semibold">
       <li>
