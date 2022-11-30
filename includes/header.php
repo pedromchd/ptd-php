@@ -6,10 +6,6 @@ if (isset($_POST["username"])) {
   $query->bindValue(":password", $_POST["password"]);
   $result = $query->execute();
   $usuario = $result->fetchArray(SQLITE3_ASSOC);
-  // if ($usuario === false) {
-  //   header("Location: index.php");
-  //   exit;
-  // }
   $fullname = $usuario["fullname"];
 }
 ?>
