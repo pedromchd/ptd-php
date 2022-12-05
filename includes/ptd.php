@@ -31,12 +31,12 @@
       </li>
     </ul>
   </nav>
-  <?php include __DIR__ . "/cabecalho.php" ?>
-  <?php include __DIR__ . "/disciplinas.php" ?>
-  <?php include __DIR__ . "/complementares.php" ?>
-  <?php include __DIR__ . "/pesquisa.php" ?>
-  <?php include __DIR__ . "/extensao.php" ?>
-  <?php include __DIR__ . "/administracao.php" ?>
-  <?php include __DIR__ . "/atividades.php" ?>
-  <?php include __DIR__ . "/observacoes.php" ?>
+  <?php include __DIR__ . "/ptd/cabecalho.php" ?>
+  <?php include __DIR__ . "/ptd/disciplinas.php" ?>
+  <?php include __DIR__ . "/ptd/complementares.php" ?>
+  <?php include __DIR__ . "/ptd/pesquisa.php" ?>
+  <?php include __DIR__ . "/ptd/extensao.php" ?>
+  <?php include __DIR__ . "/ptd/administracao.php" ?>
+  <?php include __DIR__ . "/ptd/atividades.php" ?>
+  <?php include __DIR__ . "/ptd/observacoes.php" ?>
 </section>
