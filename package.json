@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "php -S localhost:8080",
-    "build": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --watch",
-    "prod": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --minify"
+    "build": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --watch",
+    "prod": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --minify"
   }
 }

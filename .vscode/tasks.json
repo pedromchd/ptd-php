@@ -25,14 +25,14 @@
       },
       "problemMatcher": [],
       "label": "npm: build",
-      "detail": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --watch"
+      "detail": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --watch"
     },
     {
       "type": "npm",
       "script": "prod",
       "problemMatcher": [],
       "label": "npm: prod",
-      "detail": "npx tailwindcss -i ./css/tailwind.css -o ./css/styles.css --minify"
+      "detail": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --minify"
     }
   ]
 }
