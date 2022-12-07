@@ -1,6 +1,11 @@
 <?php
-$fullname = "Não logado";
-if (isset($_POST["username"])) {
+if (isset($_SESSION)) {
+  // session_abort();
+  // session_destroy();
+  session_start();
+}
+
+if (isset($_SESSION["username"], $_SESSION["password"])) {
   $query = $db->prepare("SELECT fullname, password FROM usuarios WHERE username = :username AND password = :password");
   $query->bindValue(":username", $_POST["username"]);
   $query->bindValue(":password", $_POST["password"]);
@@ -8,6 +13,13 @@ if (isset($_POST["username"])) {
   $usuario = $result->fetchArray(SQLITE3_ASSOC);
   $fullname = $usuario["fullname"];
 }
+
+if (isset($_POST["username"], $_POST["password"])) {
+  $_SESSION["username"] = $_POST["username"];
+  $_SESSION["password"] = $_POST["password"];
+}
+
+$fullname ??= "Não logado";
 ?>
 
 <!DOCTYPE html>
@@ -57,3 +69,4 @@ if (isset($_POST["username"])) {
       </div>
     </header>
     <main class="grid flex-grow place-items-center bg-neutral-50 p-3 dark:bg-neutral-800 dark:text-neutral-50">
+      <a href="ptd.php">Teste</a>
