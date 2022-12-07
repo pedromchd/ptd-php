@@ -6,11 +6,11 @@
       <div class="space-y-3">
         <label for="" class="block">
           <span class="font-semibold">Usuário</span>
-          <input type="text" name="username" id="" class="input" required />
+          <input type="text" name="username" class="input" required />
         </label>
         <label for="" class="block">
           <span class="font-semibold">Senha</span>
-          <input type="password" name="password" id="" class="input" required />
+          <input type="password" name="password" class="input" required />
         </label>
         <button type="submit" class="submit">Entrar</button>
       </div>

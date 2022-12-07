@@ -1,25 +1,18 @@
 <?php
-if (isset($_SESSION)) {
-  // session_abort();
-  // session_destroy();
-  session_start();
-}
+// if (!isset($_SESSION)) {
+//   session_start();
+// }
 
-if (isset($_SESSION["username"], $_SESSION["password"])) {
-  $query = $db->prepare("SELECT fullname, password FROM usuarios WHERE username = :username AND password = :password");
-  $query->bindValue(":username", $_POST["username"]);
-  $query->bindValue(":password", $_POST["password"]);
-  $result = $query->execute();
-  $usuario = $result->fetchArray(SQLITE3_ASSOC);
-  $fullname = $usuario["fullname"];
-}
+// session_destroy();
+// unset($_SESSION);
 
-if (isset($_POST["username"], $_POST["password"])) {
-  $_SESSION["username"] = $_POST["username"];
-  $_SESSION["password"] = $_POST["password"];
-}
+// if (isset($_POST["username"], $_POST["password"])) {
+//   $_SESSION["username"] = $_POST["username"];
+//   $_SESSION["password"] = $_POST["password"];
+//   // header("Location: ptd.php");
+// }
 
-$fullname ??= "Não logado";
+$fullname = "Não logado";
 ?>
 
 <!DOCTYPE html>
@@ -30,18 +23,18 @@ $fullname ??= "Não logado";
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sistema de Administração de Planos de Trabalho Docente</title>
-  <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-  <script defer src="/assets/js/alpine-mask.min.js"></script>
-  <script defer src="/assets/js/alpine.min.js"></script>
-  <script src="/assets/js/jquery.min.js"></script>
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css" />
+  <script defer src="./assets/js/alpine-mask.min.js"></script>
+  <script defer src="./assets/js/alpine.min.js"></script>
+  <script src="./assets/js/jquery.min.js"></script>
 </head>
 
 <body class="antialised" x-data="{'darkMode': false}" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
   <div class="flex h-screen flex-col" :class="{'dark': darkMode === true}">
     <header class="grid grid-cols-3 items-center gap-3 bg-neutral-100 p-3 dark:bg-neutral-900 dark:text-neutral-50">
-      <img src="/assets/img/Logo-Campus-Rio-Grande_horizontal.png" alt="" class="w-64 dark:brightness-0 dark:invert dark:saturate-0" />
+      <img src="./assets/img/Logo-Campus-Rio-Grande_horizontal.png" alt="" class="w-64 dark:brightness-0 dark:invert dark:saturate-0" />
       <h1 class="text-center text-2xl font-bold uppercase">Sistema de Administração de Planos de Trabalho Docente</h1>
       <div class="relative justify-self-end" x-data="{'open': false}">
         <div class="flex items-center">
@@ -69,4 +62,3 @@ $fullname ??= "Não logado";
       </div>
     </header>
     <main class="grid flex-grow place-items-center bg-neutral-50 p-3 dark:bg-neutral-800 dark:text-neutral-50">
-      <a href="ptd.php">Teste</a>

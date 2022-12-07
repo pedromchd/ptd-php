@@ -1,8 +1,20 @@
+<?php
+if (isset($_POST["atividades"], $_POST["local"], $_POST["dia_semana"], $_POST["hora_inicio"], $_POST["hora_termino"])) {
+  $insert = $db->prepare("INSERT INTO atividades(atividades, local, dia_semana, hora_inicio, hora_termino) VALUES (:atividades, :local, :dia_semana, :hora_inicio, :hora_termino)");
+  $insert->bindValue(":atividades", $_POST["atividades"]);
+  $insert->bindValue(":local", $_POST["local"]);
+  $insert->bindValue(":dia_semana", $_POST["dia_semana"]);
+  $insert->bindValue(":hora_inicio", $_POST["hora_inicio"]);
+  $insert->bindValue(":hora_termino", $_POST["hora_termino"]);
+  $result = $insert->execute();
+}
+$query = $db->prepare("SELECT * FROM atividades");
+$results = $query->execute(); ?>
+
+
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('atividades')">
-  <div class="grid grid-cols-2 gap-3">
-    <form method="get" class="space-y-3">
-      <input class="hidden" type="hidden" name="username" value="<?= $_POST["username"] ?>">
-      <input class="hidden" type="hidden" name="password" value="<?= $_POST["password"] ?>">
+  <div class="grid h-full grid-cols-3 gap-3 place-items-start">
+    <form method="post" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividades</span>
         <input type="text" name="atividades" id="" class="input" required />
@@ -25,5 +37,31 @@
       </label>
       <button type="submit" class="submit py-3">CADASTRAR ATIVIDADE REFERENTE ÁS AULAS E ATENDIMENTOS</button>
     </form>
+    <table class="ptd-table col-span-2 w-full">
+      <tbody>
+        <tr>
+          <td>Atividades</td>
+          <td>Local</td>
+          <td>Dia da Semana</td>
+          <td>Hora de Início</td>
+          <td>Hora de Término</td>
+          <td>Opções</td>
+        </tr>
+        <?php
+        while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+          echo "<tr>";
+          foreach ($row as $key => $value) {
+            if ($key === "id") {
+              continue;
+            }
+            echo "<td>" . $value . "</td>";
+          }
+          echo "<td><a href='/atividades.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td>" . $row["id"] . "</td>";
+          echo "</tr>";
+        }
+        ?>
+      </tbody>
+    </table>
   </div>
 </article>
