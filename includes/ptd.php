@@ -1,5 +1,11 @@
 <section class="flex h-full w-full flex-col" x-data="{
-    tab: 'cabecalho',
+    <?php
+    if (isset($_GET["tab"])) {
+      echo "tab: '" . $_GET["tab"] . "',";
+    } else {
+      echo "tab: 'cabecalho',";
+    }
+    ?>
     toggle(id) { this.tab = id },
     isOpen(id) { return this.tab === id }
   }">

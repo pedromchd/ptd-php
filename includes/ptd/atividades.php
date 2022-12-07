@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST["atividades"], $_POST["local"], $_POST["dia_semana"], $_POST["hora_inicio"], $_POST["hora_termino"])) {
-  $insert = $db->prepare("INSERT INTO atividades(atividades, local, dia_semana, hora_inicio, hora_termino) VALUES (:atividades, :local, :dia_semana, :hora_inicio, :hora_termino)");
-  $insert->bindValue(":atividades", $_POST["atividades"]);
+if (isset($_POST["atividade"], $_POST["local"], $_POST["dia_semana"], $_POST["hora_inicio"], $_POST["hora_termino"])) {
+  $insert = $db->prepare("INSERT INTO atividades(atividade, local, dia_semana, hora_inicio, hora_termino) VALUES (:atividade, :local, :dia_semana, :hora_inicio, :hora_termino)");
+  $insert->bindValue(":atividade", $_POST["atividade"]);
   $insert->bindValue(":local", $_POST["local"]);
   $insert->bindValue(":dia_semana", $_POST["dia_semana"]);
   $insert->bindValue(":hora_inicio", $_POST["hora_inicio"]);
@@ -14,10 +14,10 @@ $results = $query->execute(); ?>
 
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('atividades')">
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
-    <form method="post" class="space-y-3 w-full">
+    <form method="post" action="ptd.php?tab=atividades" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividades</span>
-        <input type="text" name="atividades" id="" class="input" required />
+        <input type="text" name="atividade" id="" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Local</span>
@@ -57,7 +57,6 @@ $results = $query->execute(); ?>
             echo "<td>" . $value . "</td>";
           }
           echo "<td><a href='/atividades.php?id='" . $row["id"] . ">Editar</a></td>";
-          echo "<td>" . $row["id"] . "</td>";
           echo "</tr>";
         }
         ?>

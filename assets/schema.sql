@@ -94,7 +94,7 @@ CREATE TABLE atividades
   "local" VARCHAR(255) NOT NULL,
   "dia_semana" VARCHAR(255) NOT NULL,
   "hora_inicio" TIME NOT NULL,
-  "hora_termino " TIME NOT NULL,
+  "hora_termino" TIME NOT NULL,
   PRIMARY KEY ("id")
 );
 

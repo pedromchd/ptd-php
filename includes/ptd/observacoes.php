@@ -10,7 +10,7 @@ $results = $query->execute(); ?>
 
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('observacoes')">
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
-    <form method="post" class="space-y-3 w-full">
+    <form method="post" action="ptd.php?tab=observacoes" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Observações do Professor</span>
         <input type="text" name="observacao" id="" class="input" required />
@@ -33,7 +33,6 @@ $results = $query->execute(); ?>
             echo "<td>" . $value . "</td>";
           }
           echo "<td><a href='/obervacoes.php?id='" . $row["id"] . ">Editar</a></td>";
-          echo "<td>" . $row["id"] . "</td>";
           echo "</tr>";
         }
         ?>

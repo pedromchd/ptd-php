@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["atividade_adm"], $_POST["portaria"], $_POST["carga_horaria"])) {
-  $insert = $db->prepare("INSERT INTO administracao(atividade_adm, portaria, carga_horaria) VALUES (:atividade_adm, :portaria, :carga_horaria");
+  $insert = $db->prepare("INSERT INTO administracao(atividade_adm, portaria, carga_horaria) VALUES (:atividade_adm, :portaria, :carga_horaria)");
   $insert->bindValue(":atividade_adm", $_POST["atividade_adm"]);
   $insert->bindValue(":portaria", $_POST["portaria"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
@@ -11,7 +11,7 @@ $results = $query->execute(); ?>
 
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('administracao')">
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
-    <form method="post" class="space-y-3 w-full">
+    <form method="post" action="ptd.php?tab=administracao" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividade Administrativa</span>
         <input type="text" name="atividade_adm" id="" class="input" required />
@@ -44,7 +44,6 @@ $results = $query->execute(); ?>
             echo "<td>" . $value . "</td>";
           }
           echo "<td><a href='/administracao.php?id='" . $row["id"] . ">Editar</a></td>";
-          echo "<td>" . $row["id"] . "</td>";
           echo "</tr>";
         }
         ?>

@@ -13,7 +13,7 @@ $results = $query->execute();
 
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('cabecalho')">
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
-    <form method="post" class="space-y-3 w-full">
+    <form method="post" action="ptd.php?tab=cabecalho" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Sala de Permanência</span>
         <input type="text" name="sala_permanencia" id="" class="input" required />
