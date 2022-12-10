@@ -108,7 +108,8 @@ CREATE TABLE observacoes
 INSERT INTO usuarios ("username", "password", "fullname") VALUES
 ("pedro", "machado", "Pedro Machado"),
 ("marcos", "freitas", "Marcos Copello"),
-("antonella", "cuello", "Antonella Cuello");
+("antonella", "cuello", "Antonella Cuello"),
+("flavia", "santos", "Flavia Santos");
 
 -- INSERT INTO ptd ("periodo", "status") VALUES
 -- ("2022/1", "0"),
