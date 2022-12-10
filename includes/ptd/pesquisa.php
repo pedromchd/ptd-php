@@ -3,7 +3,7 @@ if (isset($_POST["atividade_pesq"], $_POST["carga_horaria"])) {
   $insert = $db->prepare("INSERT INTO pesquisa(atividade_pesq, carga_horaria) VALUES (:atividade_pesq, :carga_horaria)");
   $insert->bindValue(":atividade_pesq", $_POST["atividade_pesq"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
-  $result = $insert->execute();
+  $insert->execute();
 }
 $query = $db->prepare("SELECT * FROM pesquisa");
 $results = $query->execute(); ?>
@@ -23,10 +23,10 @@ $results = $query->execute(); ?>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
-        <tr>
+        <tr class="font-bold">
           <td>Atividade de Pesquisa</td>
           <td>Carga Horária Semanal</td>
-          <td>Opções</td>
+          <td colspan="2">Opções</td>
         </tr>
         <?php
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -37,7 +37,8 @@ $results = $query->execute(); ?>
             }
             echo "<td>" . $value . "</td>";
           }
-          echo "<td><a href='/pesquisa.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=pesquisa&editar=" . $row["id"] . "'>Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=pesquisa&deletar=" . $row["id"] . "'>Deletar</a></td>";
           echo "</tr>";
         }
         ?>

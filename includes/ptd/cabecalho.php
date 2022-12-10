@@ -5,7 +5,7 @@ if (isset($_POST["sala_permanencia"], $_POST["area_conhecimento"], $_POST["categ
   $insert->bindValue(":area_conhecimento", $_POST["area_conhecimento"]);
   $insert->bindValue(":categoria", $_POST["categoria"]);
   $insert->bindValue(":regime_trabalho", $_POST["regime_trabalho"]);
-  $result = $insert->execute();
+  $insert->execute();
 }
 $query = $db->prepare("SELECT * FROM cabecalho");
 $results = $query->execute();
@@ -34,12 +34,12 @@ $results = $query->execute();
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
-        <tr>
+        <tr class="font-bold">
           <td>Sala de Permanência</td>
           <td>Área de Conhecimento</td>
           <td>Categoria</td>
           <td>Regime de Trabalho</td>
-          <td>Opções</td>
+          <td colspan="2">Opções</td>
         </tr>
         <?php
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -50,7 +50,8 @@ $results = $query->execute();
             }
             echo "<td>" . $value . "</td>";
           }
-          echo "<td><a href='/cabecalho.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=cabecalho&editar=" . $row["id"] . "'>Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=cabecalho&deletar=" . $row["id"] . "'>Deletar</a></td>";
           echo "</tr>";
         }
         ?>

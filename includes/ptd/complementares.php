@@ -3,7 +3,7 @@ if (isset($_POST["atividade_comp"], $_POST["carga_horaria"])) {
   $insert = $db->prepare("INSERT INTO complementares(atividade_comp, carga_horaria) VALUES (:atividade_comp, :carga_horaria)");
   $insert->bindValue(":atividade_comp", $_POST["atividade_comp"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
-  $result = $insert->execute();
+  $insert->execute();
 }
 $query = $db->prepare("SELECT * FROM complementares");
 $results = $query->execute();
@@ -24,10 +24,10 @@ $results = $query->execute();
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
-        <tr>
+        <tr class="font-bold">
           <td>Atividade Complementar de Ensino</td>
           <td>Carga Horária Semanal</td>
-          <td>Opções</td>
+          <td colspan="2">Opções</td>
         </tr>
         <?php
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -38,7 +38,8 @@ $results = $query->execute();
             }
             echo "<td>" . $value . "</td>";
           }
-          echo "<td><a href='/complementares.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=complementares&editar=" . $row["id"] . "'>Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=complementares&deletar=" . $row["id"] . "'>Deletar</a></td>";
           echo "</tr>";
         }
         ?>

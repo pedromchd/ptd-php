@@ -6,7 +6,7 @@ if (isset($_POST["atividade"], $_POST["local"], $_POST["dia_semana"], $_POST["ho
   $insert->bindValue(":dia_semana", $_POST["dia_semana"]);
   $insert->bindValue(":hora_inicio", $_POST["hora_inicio"]);
   $insert->bindValue(":hora_termino", $_POST["hora_termino"]);
-  $result = $insert->execute();
+  $insert->execute();
 }
 $query = $db->prepare("SELECT * FROM atividades");
 $results = $query->execute(); ?>
@@ -39,13 +39,13 @@ $results = $query->execute(); ?>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
-        <tr>
+        <tr class="font-bold">
           <td>Atividades</td>
           <td>Local</td>
           <td>Dia da Semana</td>
           <td>Hora de Início</td>
           <td>Hora de Término</td>
-          <td>Opções</td>
+          <td colspan="2">Opções</td>
         </tr>
         <?php
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -56,7 +56,8 @@ $results = $query->execute(); ?>
             }
             echo "<td>" . $value . "</td>";
           }
-          echo "<td><a href='/atividades.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=atividades&editar=" . $row["id"] . "'>Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=atividades&deletar=" . $row["id"] . "'>Deletar</a></td>";
           echo "</tr>";
         }
         ?>

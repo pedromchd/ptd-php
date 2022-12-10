@@ -13,6 +13,12 @@
 // }
 
 $fullname = "Não logado";
+
+if (isset($_GET["tab"], $_GET["deletar"])) {
+  $delete = $db->prepare("DELETE FROM " . $_GET["tab"] . " WHERE id = :id");
+  $delete->bindValue(":id", $_GET["deletar"]);
+  $delete->execute();
+}
 ?>
 
 <!DOCTYPE html>

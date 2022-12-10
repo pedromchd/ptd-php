@@ -2,8 +2,7 @@
 if (isset($_POST["observacao"])) {
   $insert = $db->prepare("INSERT INTO observacoes(observacao) VALUES (:observacao)");
   $insert->bindValue(":observacao", $_POST["observacao"]);
-
-  $result = $insert->execute();
+  $insert->execute();
 }
 $query = $db->prepare("SELECT * FROM observacoes");
 $results = $query->execute(); ?>
@@ -19,9 +18,9 @@ $results = $query->execute(); ?>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
-        <tr>
+        <tr class="font-bold">
           <td>Observações do Professor</td>
-          <td>Opções</td>
+          <td colspan="2">Opções</td>
         </tr>
         <?php
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -32,7 +31,8 @@ $results = $query->execute(); ?>
             }
             echo "<td>" . $value . "</td>";
           }
-          echo "<td><a href='/obervacoes.php?id='" . $row["id"] . ">Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=observacoes&editar=" . $row["id"] . "'>Editar</a></td>";
+          echo "<td><a href='/ptd.php?tab=observacoes&deletar=" . $row["id"] . "'>Deletar</a></td>";
           echo "</tr>";
         }
         ?>
