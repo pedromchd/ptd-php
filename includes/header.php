@@ -1,18 +1,33 @@
 <?php
-// if (!isset($_SESSION)) {
-//   session_start();
-// }
+session_start();
 
-// session_destroy();
-// unset($_SESSION);
+if (isset($_GET["logout"])) {
+  session_destroy();
+  unset($_SESSION);
+  header("Location: index.php");
+}
 
-// if (isset($_POST["username"], $_POST["password"])) {
-//   $_SESSION["username"] = $_POST["username"];
-//   $_SESSION["password"] = $_POST["password"];
-//   // header("Location: ptd.php");
-// }
+$db = new SQLite3("./assets/database.db");
 
 $fullname = "Não logado";
+
+if (isset($_SESSION["username"], $_SESSION["password"])) {
+  $query = $db->prepare("SELECT fullname, password FROM usuarios WHERE username = :username AND password = :password");
+  $query->bindValue(":username", $_SESSION["username"]);
+  $query->bindValue(":password", $_SESSION["password"]);
+  $result = $query->execute();
+  $usuario = $result->fetchArray(SQLITE3_ASSOC);
+  if ($usuario === false) {
+    header("Location: index.php?logout=true");
+  }
+  $fullname = $usuario["fullname"];
+}
+
+if (isset($_POST["username"], $_POST["password"])) {
+  $_SESSION["username"] = $_POST["username"];
+  $_SESSION["password"] = $_POST["password"];
+  header("Location: ptd.php");
+}
 
 if (isset($_GET["tab"], $_GET["deletar"])) {
   $delete = $db->prepare("DELETE FROM " . $_GET["tab"] . " WHERE id = :id");
@@ -54,15 +69,17 @@ if (isset($_GET["tab"], $_GET["deletar"])) {
             <span>Modo <span x-text="(darkMode) ? 'Claro' : 'Escuro'"></span></span>
             <span><i class="fa" :class="darkMode ? 'fa-sun-o' : 'fa-moon-o'" aria-hidden="true"></i></span>
           </button>
-          <?php if (isset($_POST["username"])) : ?>
+          <?php if (isset($_SESSION["username"])) : ?>
           <!-- <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
             <span>Alterar Senha</span>
             <span><i class="fa fa-key" aria-hidden="true"></i></span>
           </button> -->
-          <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700" @click="window.open('index.php', '_self')">
-            <span>Sair do Sistema</span>
-            <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-          </button>
+          <a href="index.php?logout=true">
+            <button class="flex w-full justify-between rounded-md p-1 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+              <span>Sair do Sistema</span>
+              <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+            </button>
+          </a>
           <?php endif; ?>
         </div>
       </div>
