@@ -1,9 +1,26 @@
 <?php
 if (isset($_POST["atividade_pesq"], $_POST["carga_horaria"])) {
-  $insert = $db->prepare("INSERT INTO pesquisa(atividade_pesq, carga_horaria) VALUES (:atividade_pesq, :carga_horaria)");
+  if (isset($_POST["submit"]) && $_POST["submit"]) {
+    $insert = $db->prepare("UPDATE pesquisa SET atividade_pesq = :atividade_pesq, carga_horaria = :carga_horaria WHERE id = :id");
+    $insert->bindValue(":id", $_POST["submit"]);
+  } else {
+    $insert = $db->prepare("INSERT INTO pesquisa(atividade_pesq, carga_horaria) VALUES (:atividade_pesq, :carga_horaria)");
+  }
   $insert->bindValue(":atividade_pesq", $_POST["atividade_pesq"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
   $insert->execute();
+}
+$atividade_pesq = "";
+$carga_horaria = "";
+$id = "";
+if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "pesquisa") {
+  $query = $db->prepare("SELECT * FROM pesquisa WHERE id = :id");
+  $query->bindValue(":id", $_GET["editar"]);
+  $results = $query->execute();
+  $row = $results->fetchArray(SQLITE3_ASSOC);
+  $id = $row["id"];
+  $atividade_pesq = $row["atividade_pesq"];
+  $carga_horaria = $row["carga_horaria"];
 }
 $query = $db->prepare("SELECT * FROM pesquisa");
 $results = $query->execute(); ?>
@@ -13,13 +30,13 @@ $results = $query->execute(); ?>
     <form method="post" action="ptd.php?tab=pesquisa" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividade de Pesquisa</span>
-        <input type="text" name="atividade_pesq" id="" class="input" required />
+        <input type="text" name="atividade_pesq" value="<?= $atividade_pesq ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Carga Horária Semanal</span>
-        <input type="text" name="carga_horaria" id="" class="input" required />
+        <input type="text" name="carga_horaria" value="<?= $carga_horaria ?>" class="input" required />
       </label>
-      <button type="submit" class="submit py-3">CADASTRAR ATIVIDADE DE PESQUISA</button>
+      <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">CADASTRAR ATIVIDADE DE PESQUISA</button>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>

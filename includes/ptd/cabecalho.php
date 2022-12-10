@@ -1,11 +1,32 @@
 <?php
 if (isset($_POST["sala_permanencia"], $_POST["area_conhecimento"], $_POST["categoria"], $_POST["regime_trabalho"])) {
-  $insert = $db->prepare("INSERT INTO cabecalho(sala_permanencia, area_conhecimento, categoria, regime_trabalho) VALUES (:sala_permanencia, :area_conhecimento, :categoria, :regime_trabalho)");
+  if (isset($_POST["submit"]) && $_POST["submit"]) {
+    $insert = $db->prepare("UPDATE cabecalho SET sala_permanencia = :sala_permanencia, area_conhecimento = :area_conhecimento, categoria = :categoria, regime_trabalho = :regime_trabalho WHERE id = :id");
+    $insert->bindValue(":id", $_POST["submit"]);
+  } else {
+    $insert = $db->prepare("INSERT INTO cabecalho(sala_permanencia, area_conhecimento, categoria, regime_trabalho) VALUES (:sala_permanencia, :area_conhecimento, :categoria, :regime_trabalho)");
+  }
   $insert->bindValue(":sala_permanencia", $_POST["sala_permanencia"]);
   $insert->bindValue(":area_conhecimento", $_POST["area_conhecimento"]);
   $insert->bindValue(":categoria", $_POST["categoria"]);
   $insert->bindValue(":regime_trabalho", $_POST["regime_trabalho"]);
   $insert->execute();
+}
+$sala_permanencia = "";
+$area_conhecimento = "";
+$categoria = "";
+$regime_trabalho = "";
+$id = "";
+if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "cabecalho") {
+  $query = $db->prepare("SELECT * FROM cabecalho WHERE id = :id");
+  $query->bindValue(":id", $_GET["editar"]);
+  $results = $query->execute();
+  $row = $results->fetchArray(SQLITE3_ASSOC);
+  $id = $row["id"];
+  $sala_permanencia = $row["sala_permanencia"];
+  $area_conhecimento = $row["area_conhecimento"];
+  $categoria = $row["categoria"];
+  $regime_trabalho = $row["regime_trabalho"];
 }
 $query = $db->prepare("SELECT * FROM cabecalho");
 $results = $query->execute();
@@ -16,21 +37,21 @@ $results = $query->execute();
     <form method="post" action="ptd.php?tab=cabecalho" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Sala de Permanência</span>
-        <input type="text" name="sala_permanencia" id="" class="input" required />
+        <input type="text" name="sala_permanencia" value="<?= $sala_permanencia ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Área de conhecimento</span>
-        <input type="text" name="area_conhecimento" id="" class="input" required />
+        <input type="text" name="area_conhecimento" value="<?= $area_conhecimento ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Categoria</span>
-        <input type="text" name="categoria" id="" class="input" required />
+        <input type="text" name="categoria" value="<?= $categoria ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Regime de trabalho</span>
-        <input type="text" name="regime_trabalho" id="" class="input" required />
+        <input type="text" name="regime_trabalho" value="<?= $regime_trabalho ?>" class="input" required />
       </label>
-      <button type="submit" class="submit py-3">GRAVAR CABEÇALHO DO PTD</button>
+      <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">GRAVAR CABEÇALHO DO PTD</button>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>

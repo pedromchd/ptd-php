@@ -1,8 +1,23 @@
 <?php
 if (isset($_POST["observacao"])) {
-  $insert = $db->prepare("INSERT INTO observacoes(observacao) VALUES (:observacao)");
+  if (isset($_POST["submit"]) && $_POST["submit"]) {
+    $insert = $db->prepare("UPDATE observacoes SET observacao = :observacao WHERE id = :id");
+    $insert->bindValue(":id", $_POST["submit"]);
+  } else {
+    $insert = $db->prepare("INSERT INTO observacoes(observacao) VALUES (:observacao)");
+  }
   $insert->bindValue(":observacao", $_POST["observacao"]);
   $insert->execute();
+}
+$observacao = "";
+$id = "";
+if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "observacoes") {
+  $query = $db->prepare("SELECT * FROM observacoes WHERE id = :id");
+  $query->bindValue(":id", $_GET["editar"]);
+  $results = $query->execute();
+  $row = $results->fetchArray(SQLITE3_ASSOC);
+  $id = $row["id"];
+  $observacao = $row["observacao"];
 }
 $query = $db->prepare("SELECT * FROM observacoes");
 $results = $query->execute(); ?>
@@ -12,9 +27,9 @@ $results = $query->execute(); ?>
     <form method="post" action="ptd.php?tab=observacoes" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Observações do Professor</span>
-        <input type="text" name="observacao" id="" class="input" required />
+        <input type="text" name="observacao" value="<?= $observacao ?>" class="input" required />
       </label>
-      <button type="submit" class="submit py-3">GRAVAR OBSERVAÇÕES</button>
+      <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">GRAVAR OBSERVAÇÕES</button>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>

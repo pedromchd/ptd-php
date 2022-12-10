@@ -1,9 +1,26 @@
 <?php
 if (isset($_POST["atividade_comp"], $_POST["carga_horaria"])) {
-  $insert = $db->prepare("INSERT INTO complementares(atividade_comp, carga_horaria) VALUES (:atividade_comp, :carga_horaria)");
+  if (isset($_POST["submit"]) && $_POST["submit"]) {
+    $insert = $db->prepare("UPDATE complementares SET atividade_comp = :atividade_comp, carga_horaria = :carga_horaria WHERE id = :id");
+    $insert->bindValue(":id", $_POST["submit"]);
+  } else {
+    $insert = $db->prepare("INSERT INTO complementares(atividade_comp, carga_horaria) VALUES (:atividade_comp, :carga_horaria)");
+  }
   $insert->bindValue(":atividade_comp", $_POST["atividade_comp"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
   $insert->execute();
+}
+$atividade_comp = "";
+$carga_horaria = "";
+$id = "";
+if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "complementares") {
+  $query = $db->prepare("SELECT * FROM complementares WHERE id = :id");
+  $query->bindValue(":id", $_GET["editar"]);
+  $results = $query->execute();
+  $row = $results->fetchArray(SQLITE3_ASSOC);
+  $id = $row["id"];
+  $atividade_comp = $row["atividade_comp"];
+  $carga_horaria = $row["carga_horaria"];
 }
 $query = $db->prepare("SELECT * FROM complementares");
 $results = $query->execute();
@@ -14,13 +31,13 @@ $results = $query->execute();
     <form method="post" action="ptd.php?tab=complementares" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividade Complementar de Ensino</span>
-        <input type="text" name="atividade_comp" id="" class="input" required />
+        <input type="text" name="atividade_comp" value="<?= $atividade_comp ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Carga Horária Semanal</span>
-        <input type="text" name="carga_horaria" id="" class="input" required />
+        <input type="text" name="carga_horaria" value="<?= $carga_horaria ?>" class="input" required />
       </label>
-      <button type="submit" class="submit py-3">CADASTRAR ATIVIDADE COMPLEMENTAR DE ENSINO</button>
+      <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">CADASTRAR ATIVIDADE COMPLEMENTAR DE ENSINO</button>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>

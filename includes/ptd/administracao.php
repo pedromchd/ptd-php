@@ -1,20 +1,29 @@
 <?php
 if (isset($_POST["atividade_adm"], $_POST["portaria"], $_POST["carga_horaria"])) {
-  $insert = $db->prepare("INSERT INTO administracao(atividade_adm, portaria, carga_horaria) VALUES (:atividade_adm, :portaria, :carga_horaria)");
+  if (isset($_POST["submit"]) && $_POST["submit"]) {
+    $insert = $db->prepare("UPDATE administracao SET atividade_adm = :atividade_adm, portaria = :portaria, carga_horaria = :carga_horaria WHERE id = :id");
+    $insert->bindValue(":id", $_POST["submit"]);
+  } else {
+    $insert = $db->prepare("INSERT INTO administracao(atividade_adm, portaria, carga_horaria) VALUES (:atividade_adm, :portaria, :carga_horaria)");
+  }
   $insert->bindValue(":atividade_adm", $_POST["atividade_adm"]);
   $insert->bindValue(":portaria", $_POST["portaria"]);
   $insert->bindValue(":carga_horaria", $_POST["carga_horaria"]);
   $insert->execute();
 }
-if (isset($_POST["editar"])) {
+$atividade_adm = "";
+$portaria = "";
+$carga_horaria = "";
+$id = "";
+if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "administracao") {
   $query = $db->prepare("SELECT * FROM administracao WHERE id = :id");
   $query->bindValue(":id", $_GET["editar"]);
   $results = $query->execute();
-  while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-    $atividade_adm = $row["atividade_adm"];
-    $portaria = $row["portaria"];
-    $carga_horaria = $row["carga_horaria"];
-  }
+  $row = $results->fetchArray(SQLITE3_ASSOC);
+  $id = $row["id"];
+  $atividade_adm = $row["atividade_adm"];
+  $portaria = $row["portaria"];
+  $carga_horaria = $row["carga_horaria"];
 }
 $query = $db->prepare("SELECT * FROM administracao");
 $results = $query->execute();
@@ -25,17 +34,17 @@ $results = $query->execute();
     <form method="post" action="ptd.php?tab=administracao" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Atividade Administrativa</span>
-        <input type="text" name="atividade_adm" id="" class="input" required />
+        <input type="text" name="atividade_adm" value="<?= $atividade_adm ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Portaria</span>
-        <input type="text" name="portaria" id="" class="input" required />
+        <input type="text" name="portaria" value="<?= $portaria ?>" class="input" required />
       </label>
       <label for="" class="block">
         <span class="font-semibold">Carga Horária Semanal</span>
-        <input type="text" name="carga_horaria" id="" class="input" required />
+        <input type="text" name="carga_horaria" value="<?= $carga_horaria ?>" class="input" required />
       </label>
-      <button type="submit" class="submit py-3">CADASTRAR ATIVIDADE ADMINISTRATIVA</button>
+      <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">CADASTRAR ATIVIDADE ADMINISTRATIVA</button>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
