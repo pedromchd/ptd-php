@@ -27,7 +27,7 @@ $results = $query->execute(); ?>
     <form method="post" action="ptd.php?tab=observacoes" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Observações do Professor</span>
-        <input type="text" name="observacao" value="<?= $observacao ?>" class="input" required />
+        <textarea type="text" name="observacao" value="<?= $observacao ?>" class="input" required rows="10"></textarea>
       </label>
       <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">GRAVAR OBSERVAÇÕES</button>
     </form>

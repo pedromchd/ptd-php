@@ -29,7 +29,7 @@
   }
 
   .ptd-table td {
-    @apply border border-neutral-500 p-2 text-center;
+    @apply break-words border border-neutral-500 p-2 text-center;
   }
 
   .input {

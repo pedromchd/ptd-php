@@ -39,7 +39,7 @@ $results = $query->execute();
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
     <form method="post" action="ptd.php?tab=atividades" class="space-y-3 w-full">
       <label for="" class="block">
-        <span class="font-semibold">Atividades</span>
+        <span class="font-semibold">Atividade</span>
         <input type="text" name="atividade" value="<?= $atividade ?>" class="input" required />
       </label>
       <label for="" class="block">
@@ -48,7 +48,16 @@ $results = $query->execute();
       </label>
       <label for="" class="block">
         <span class="font-semibold">Dia da Semana</span>
-        <input type="text" name="dia_semana" value="<?= $dia_semana ?>" class="input" required />
+        <select name="dia_semana" class="input">
+          <option selected disabled>Selecionar</option>
+          <option value="Segunda-feira">Segunda-feira</option>
+          <option value="Terça-feira">Terça-feira</option>
+          <option value="Quarta-feira">Quarta-feira</option>
+          <option value="Quinta-feira">Quinta-feira</option>
+          <option value="Sexta-feira">Sexta-feira</option>
+          <option value="Sábado">Sábado</option>
+          <option value="Domingo">Domingo</option>
+        </select>
       </label>
       <label for="" class="block">
         <span class="font-semibold">Hora de Início</span>
@@ -59,11 +68,16 @@ $results = $query->execute();
         <input type="text" name="hora_termino" value="<?= $hora_termino ?>" class="input" required />
       </label>
       <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">CADASTRAR ATIVIDADE REFERENTE ÁS AULAS E ATENDIMENTOS</button>
+      <script>
+        if ("<?= $dia_semana ?>") {
+          document.forms[6].dia_semana.value = "<?= $dia_semana ?>";
+        }
+      </script>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
         <tr class="font-bold">
-          <td>Atividades</td>
+          <td>Atividade</td>
           <td>Local</td>
           <td>Dia da Semana</td>
           <td>Hora de Início</td>

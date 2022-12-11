@@ -32,22 +32,57 @@ if (isset($_GET["tab"], $_GET["editar"]) && $_GET["tab"] === "disciplinas") {
   $carga_horaria = $row["carga_horaria"];
 }
 $query = $db->prepare("SELECT * FROM disciplinas");
-$results = $query->execute(); ?>
+$results = $query->execute();
+
+$query = $db->prepare("SELECT modalidade FROM modalidades");
+$modalidades = $query->execute();
+$query = $db->prepare("SELECT curso FROM cursos");
+$cursos = $query->execute();
+$query = $db->prepare("SELECT materia FROM materias");
+$materias = $query->execute();
+?>
 
 <article class="flex-grow rounded-lg bg-neutral-200 p-4 dark:bg-neutral-900" x-cloak x-show="isOpen('disciplinas')">
   <div class="grid h-full grid-cols-3 gap-3 place-items-start">
     <form method="post" action="ptd.php?tab=disciplinas" class="space-y-3 w-full">
       <label for="" class="block">
         <span class="font-semibold">Modalidade</span>
-        <input type="text" name="modalidade" value="<?= $modalidade ?>" class="input" required />
+        <select name="modalidade" class="input" required>
+          <option selected disabled>Selecionar</option>
+          <?php
+          while ($row = $modalidades->fetchArray(SQLITE3_ASSOC)) {
+            foreach ($row as $value) {
+              echo "<option value='" . $value . "'>" . $value . "</option>";
+            }
+          }
+          ?>
+        </select>
       </label>
       <label for="" class="block">
         <span class="font-semibold">Curso</span>
-        <input type="text" name="curso" value="<?= $curso ?>" class="input" required />
+        <select name="curso" class="input" required>
+          <option selected disabled>Selecionar</option>
+          <?php
+          while ($row = $cursos->fetchArray(SQLITE3_ASSOC)) {
+            foreach ($row as $value) {
+              echo "<option value='" . $value . "'>" . $value . "</option>";
+            }
+          }
+          ?>
+        </select>
       </label>
       <label for="" class="block">
         <span class="font-semibold">Matéria</span>
-        <input type="text" name="materia" value="<?= $materia ?>" class="input" required />
+        <select name="materia" class="input" required>
+          <option selected disabled>Selecionar</option>
+          <?php
+          while ($row = $materias->fetchArray(SQLITE3_ASSOC)) {
+            foreach ($row as $value) {
+              echo "<option value='" . $value . "'>" . $value . "</option>";
+            }
+          }
+          ?>
+        </select>
       </label>
       <label for="" class="block">
         <span class="font-semibold">Série</span>
@@ -58,6 +93,17 @@ $results = $query->execute(); ?>
         <input type="text" name="carga_horaria" value="<?= $carga_horaria ?>" class="input" required />
       </label>
       <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">CADASTRAR ATIVIDADE REFERENTE ÁS AULAS E ATENDIMENTOS</button>
+      <script>
+        if ("<?= $modalidade ?>") {
+          document.forms[1].modalidade.value = "<?= $modalidade ?>";
+        }
+        if ("<?= $curso ?>") {
+          document.forms[1].curso.value = "<?= $curso ?>";
+        }
+        if ("<?= $materia ?>") {
+          document.forms[1].materia.value = "<?= $materia ?>";
+        }
+      </script>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>

@@ -45,13 +45,31 @@ $results = $query->execute();
       </label>
       <label for="" class="block">
         <span class="font-semibold">Categoria</span>
-        <input type="text" name="categoria" value="<?= $categoria ?>" class="input" required />
+        <select name="categoria" class="input" required>
+          <option selected disabled>Selecionar</option>
+          <option value="Magistério EBTT">Magistério EBTT</option>
+          <option value="Magistério ES">Magistério ES</option>
+        </select>
       </label>
       <label for="" class="block">
         <span class="font-semibold">Regime de trabalho</span>
-        <input type="text" name="regime_trabalho" value="<?= $regime_trabalho ?>" class="input" required />
+        <select name="regime_trabalho" class="input" required>
+          <option selected disabled>Selecionar</option>
+          <option value="20h">20h</option>
+          <option value="40h">40h</option>
+          <option value="DE">DE</option>
+          <option value="Visitante">Visitante</option>
+        </select>
       </label>
       <button type="submit" name="submit" value="<?= $id ?>" class="submit py-3">GRAVAR CABEÇALHO DO PTD</button>
+      <script>
+        if("<?= $categoria ?>") {
+          document.forms[0].categoria.value = "<?= $categoria ?>";
+        }
+        if("<?= $regime_trabalho ?>") {
+          document.forms[0].regime_trabalho.value = "<?= $regime_trabalho ?>";
+        }
+      </script>
     </form>
     <table class="ptd-table col-span-2 w-full">
       <tbody>
