@@ -24,9 +24,18 @@ if (isset($_SESSION["username"], $_SESSION["password"])) {
 }
 
 if (isset($_POST["username"], $_POST["password"])) {
-  $_SESSION["username"] = $_POST["username"];
-  $_SESSION["password"] = $_POST["password"];
-  header("Location: ptd.php");
+  if (isset($_POST["fullname"])) {
+    $cadastrar = $db->prepare("INSERT INTO usuarios(username, password, fullname) VALUES (:username, :password, :fullname)");
+    $cadastrar->bindValue(":username", $_POST["username"]);
+    $cadastrar->bindValue(":password", $_POST["password"]);
+    $cadastrar->bindValue(":fullname", $_POST["fullname"]);
+    $cadastrar->execute();
+    header("Location: index.php");
+  } else {
+    $_SESSION["username"] = $_POST["username"];
+    $_SESSION["password"] = $_POST["password"];
+    header("Location: ptd.php");
+  }
 }
 
 if (isset($_GET["tab"], $_GET["deletar"])) {

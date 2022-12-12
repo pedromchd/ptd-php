@@ -109,7 +109,13 @@ INSERT INTO usuarios ("username", "password", "fullname") VALUES
 ("pedro", "machado", "Pedro Machado"),
 ("marcos", "freitas", "Marcos Copello"),
 ("antonella", "cuello", "Antonella Cuello"),
-("flavia", "santos", "Flavia Santos");
+("flavia", "santos", "Flavia Santos"),
+("pedrO", "silveira", "Pedro Silveira"),
+("alek", "condines", "Alek Condines"),
+("marina", "fiori", "Marina Fiori"),
+("diego", "avila", "Diego Avila"),
+("sofia", "machado", "Sofia Machado"),
+("nina", "jensen", "Marina Jensen");
 
 -- INSERT INTO ptd ("periodo", "status") VALUES
 -- ("2022/1", "0"),
